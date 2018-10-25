@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body>
-  <div id="main-content">
+<body id="main-content">
+<div>
     <nav class="navbar navbar-expand-sm bg-semiTrans">
       <h4 class="navbar-brand logo">TerpMatch&#x1F422;</h4>
       <ul class="navbar-nav ml-auto">
