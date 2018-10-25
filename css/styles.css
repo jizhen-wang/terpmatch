@@ -1,0 +1,28 @@
+#main-content {
+    background-image: url("../img/McKeldin.jpg");
+    background-size: 100%;
+}
+
+#registration {
+    background-size: 100%;
+    background-color: #dfdfdf;
+}
+
+.bg-semiTrans {
+    background-color: rgba(100, 100, 100, .2);
+}
+
+.logo {
+    font-style: italic;
+    font-weight: bold;
+    color: #000099;
+}
+
+.bg-kale {
+    background-color: #448D76;
+    color: white;
+}
+
+.bg-kale-trans {
+    background-color: rgba(68, 141, 118, .5);
+}
