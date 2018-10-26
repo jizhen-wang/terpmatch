@@ -1,28 +1,70 @@
 #main-content {
-    background-image: url("../img/McKeldin.jpg");
-    background-size: 100%;
-}
-
-#registration {
-    background-size: 100%;
-    background-color: #dfdfdf;
+  background-image: url("../img/McKeldin.jpg");
+  background-size: 100%;
 }
 
 .bg-semiTrans {
-    background-color: rgba(100, 100, 100, .2);
+  background-color: rgba(100,100,100,.3);
 }
 
 .logo {
-    font-style: italic;
-    font-weight: bold;
-    color: #000099;
+  font-style: italic;
+  font-weight: bold;
+  color: #E03a3e;
 }
 
 .bg-kale {
-    background-color: #448D76;
-    color: white;
+  background-color: #448D76;
+  color: white;
 }
 
 .bg-kale-trans {
-    background-color: rgba(68, 141, 118, .5);
+  background-color: rgba(68, 141, 118, .5);
+}
+
+.bg-terps-gold {
+  background-color: #ffd520;
+}
+
+.bg-terps-red {
+  background-color: #e03a3e;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-black {
+  color: black;
+}
+
+.bg-faded-yellow {
+  background-color: rgba(255,213,32,.5);
+}
+
+.spacing {
+  height: 15%;
+}
+
+.jumbo-margin {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.standout-point {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.nav-height {
+  height: 45px;
+}
+
+.black-hover:hover {
+  color: black;
+}
+
+.border-bottom {
+  border-width: thick !important;
+  border-radius: 0px !important;
 }
