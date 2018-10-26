@@ -72,7 +72,9 @@
                         </li>
                     </ul>
                     <div class="col-12 text-center pb-3">
-                        <a class="btn btn-lg bg-terps-red text-white" href="#">Register Now</a>
+                        <button type="button" class="btn btn btn-lg bg-terps-red text-white" data-toggle="modal"
+                                data-target="#register">Register Now
+                        </button>
                     </div>
                 </div>
                 <div class="col-2"></div>
@@ -219,7 +221,7 @@
                 <h4 class="modal-title">Login</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            
+
             <!-- Modal body -->
             <div class="modal-body">
                 <form>
