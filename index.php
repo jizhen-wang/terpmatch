@@ -18,6 +18,8 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
+    <script src="js/validation.js"></script>
+
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
 
@@ -29,13 +31,13 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-link">
             <button type="button" class="btn bg-terps-gold text-black black-hover" data-toggle="modal"
-                    data-target="#login">
+                    data-target="#login_modal">
                 Login
             </button>
         </li>
         <li class="nav-link">
             <button type="button" class="btn bg-terps-gold text-black black-hover" data-toggle="modal"
-                    data-target="#register">
+                    data-target="#register_modal">
                 Register
             </button>
         </li>
@@ -67,7 +69,7 @@
                 </ul>
                 <div class="col-12 text-center pb-3">
                     <button type="button" class="btn btn btn-lg bg-terps-red text-white" data-toggle="modal"
-                            data-target="#register">
+                            data-target="#register_modal">
                         Register Now
                     </button>
                 </div>
@@ -157,7 +159,7 @@
 </div>
 
 <!-- Registration Modal -->
-<div class="modal fade" id="register">
+<div class="modal fade" id="register_modal">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <!-- Modal Header -->
@@ -168,7 +170,8 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form id="registration-form" method="post" onsubmit="return validation()" action="index.php">
+                <form name="registration" id="registration" method="post" onsubmit="return validation()"
+                      action="index.php">
                     <div class="form-row">
                         <div class="form-group col-sm-6">
                             <label>Username
@@ -219,7 +222,8 @@
                         </div>
                         <div class="form-group col-sm-4">
                             <label>Birthday
-                                <input class="form-control" type="date" name="birthday" min="1950-1-1" max="2005-12-13">
+                                <input class="form-control" type="date" name="birthday" min="1950-1-1" max="2005-12-13"
+                                       required>
                             </label>
                         </div>
                     </div>
@@ -251,13 +255,12 @@
                             </label>
                         </div>
                     </div>
+                    <input type="submit" class="btn bg-terps-red btn-block" value="Register">
                 </form>
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn-default btn" data-dismiss="modal">Cancel</button>
-                <input type="submit" class="btn btn-danger" data-dismiss="modal">
             </div>
 
         </div>
@@ -265,7 +268,7 @@
 </div>
 
 <!-- Login Modal -->
-<div class="modal fade" id="login">
+<div class="modal fade" id="login_modal">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
