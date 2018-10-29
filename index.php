@@ -278,16 +278,18 @@
           </div> -->
 
             <!-- Modal body -->
-            <form>
+            <form method="post" action="login.php">
                 <div class="modal-body">
                     <h3 class="modal-title py-3 text-center">Login to TerpMatch</h3>
                     <div class="form-group">
-                        <input class="form-control" type="text" name="username" id="username" placeholder="Username">
+                        <input class="form-control" type="text" name="username" id="username" placeholder="Username"
+                               required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" name="password" id="pwd" placeholder="Password">
+                        <input class="form-control" type="password" name="password" id="pwd" placeholder="Password"
+                               required>
                     </div>
-                    <input type="submit" class="btn bg-terps-red btn-block" data-dismiss="modal" value="Login">
+                    <input type="submit" class="btn bg-terps-red btn-block" value="Login">
                 </div>
 
                 <!-- Modal footer -->

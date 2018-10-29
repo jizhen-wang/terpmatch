@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$user = "dbuser";
-$db_password = "goodbyeWorld";
+$user = "root";
+$db_password = "";
 $database = "terpmatchdb";
 $table = "accounts"
 ?>
