@@ -276,10 +276,9 @@ EONAV;
                                 <select class="form-control" name="major" required>
                                     <?php
                                     $fp = fopen("major.txt", "r");
-                                    $count = 0;
                                     while (!feof($fp)) {
                                         $line = fgets($fp);
-                                        echo "<option value=" . $count++ . ">" . $line . "</option>";
+                                        echo "<option value=" . $line . ">" . $line . "</option>";
                                     }
                                     ?>
                                 </select>

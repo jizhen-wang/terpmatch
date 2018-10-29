@@ -12,7 +12,7 @@ Database schema:
                            gender enum('male', 'female', 'other'),
                            birthdate date,
                            year_in_school enum('freshman', 'sophomore', 'junior', 'senior', 'master', 'doctor'),
-                           major int,
+                           major varchar(50),
                            PRIMARY KEY (username));
                            
     
