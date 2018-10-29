@@ -24,7 +24,30 @@
 </head>
 
 <body>
+    
 <!-- Navbar -->
+<?php
+    session_start();
+    $nav = "";
+    if (isset($_SESSION['current_user'])) {
+        
+        $nav = <<<EONAV
+<nav class="navbar navbar-dark navbar-expand-sm bg-dark">
+    <small class="pr-2 text-white">Powered by</small>
+    <img class="navbar-brand nav-height" src="img/umd-logo-trans.jpg"/>
+    <ul class="navbar-nav ml-auto">
+        <span class="navbar-brand text-white">Welcome back {$_SESSION["current_user"]}! </span>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Match</a>
+        </li>
+    </ul>
+</nav>
+EONAV;
+    } else {
+        $nav = <<<EONAV
 <nav class="navbar navbar-expand-sm bg-dark">
     <small class="pr-2 text-white">Powered by</small>
     <img class="navbar-brand nav-height" src="img/umd-logo-trans.jpg"/>
@@ -43,6 +66,10 @@
         </li>
     </ul>
 </nav>
+EONAV;
+    }
+    echo $nav;
+?>
 
 <!-- Jumbotron with image and yellow text box -->
 <div class="jumbotron" id="main-content">
@@ -84,28 +111,28 @@
     <div class="row">
         <div class="col-4 text-center">
             <blockquote class="blockquote">
-                <p>
+                <p><em>
                     I met not only my first wife, but my next ten wives all on TerpMatch!
                     It's the best for UMD students.
-                </p>
+                </p></em>
             </blockquote>
             <em>- Finn Denhard</em>
         </div>
         <div class="col-4 text-center">
             <blockquote class="blockquote">
-                <p>
+                <p><em>
                     I was looking for someone to study with, but instead I found the
                     love of my life! Thanks TerpMatch!
-                </p>
+                </p></em>
             </blockquote>
             <em>- Fonn Donhord</em>
         </div>
         <div class="col-4 text-center">
             <blockquote class="blockquote">
-                <p>
+                <p></em>
                     I like turtles way more than the average person, so TerpMatch was
                     the perfect site for me.
-                </p>
+                </p></em>
             </blockquote>
             <em>- Fann Dinhurd</em>
         </div>
@@ -124,6 +151,10 @@
                         Sign up for TerpMatch by creating an account. It's as easy as
                         choosing a username and password. No payment. No strings attached.
                     </p>
+                    <button type="button" class="btn btn btn-lg bg-terps-red text-white" data-toggle="modal"
+                            data-target="#register_modal">
+                        Register Now
+                    </button>
                 </div>
             </div>
             <div class="card bg-terps-gold">
@@ -171,7 +202,7 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <form name="registration" id="registration" method="post" onsubmit="return validation()"
-                      action="index.php">
+                      action="registration.php">
                     <div class="form-row">
                         <div class="form-group col-sm-6">
                             <label>Username
@@ -213,7 +244,7 @@
                     <div class="form-row">
                         <div class="form-group col-sm-4">
                             <label>Gender
-                                <select class="form-control" required>
+                                <select class="form-control" name="gender" required>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
@@ -230,7 +261,7 @@
                     <div class="form-row">
                         <div class="form-group col-sm-4">
                             <label>Year in School
-                                <select class="form-control" required>
+                                <select class="form-control" name="year_in_school" required>
                                     <option value="freshman">Freshman</option>
                                     <option value="sophomore">Sophomore</option>
                                     <option value="junior">Junior</option>
@@ -242,7 +273,7 @@
                         </div>
                         <div class="form-group col-sm-4">
                             <label>Major
-                                <select class="form-control" required>
+                                <select class="form-control" name="major" required>
                                     <?php
                                     $fp = fopen("major.txt", "r");
                                     $count = 0;
@@ -303,3 +334,4 @@
 </body>
 
 </html>
+
