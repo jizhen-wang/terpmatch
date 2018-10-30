@@ -14,6 +14,10 @@
   width: 100%;
 }
 
+.match-image {
+  width: 100%;
+}
+
 .text-gray {
   color: #696969;
 }
@@ -38,4 +42,10 @@
 
 .bg-gray {
   background-color: gray;
+}
+
+.btn-xl {
+  width: 30%;
+  height: 20%;
+  font-size: 25px;
 }
