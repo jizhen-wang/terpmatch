@@ -19,7 +19,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
     <script src="js/validation.js"></script>
-
+    <script src="js/logout.js"></script>
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
 
@@ -42,6 +42,9 @@ if (isset($_SESSION['current_user'])) {
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Match</a>
+        </li>
+         <li class="nav-item">
+            <a class="nav-link" href="#" onclick="kill_session()">Logout</a>
         </li>
     </ul>
 </nav>
@@ -132,8 +135,8 @@ echo $nav;
         <div class="col-4 text-center">
             <blockquote class="blockquote">
                 <p><em>
-                    I like turtles way more than the average person, so TerpMatch was
-                    the perfect site for me.
+                        I like turtles way more than the average person, so TerpMatch was
+                        the perfect site for me.
                     </em>
                 </p>
             </blockquote>
