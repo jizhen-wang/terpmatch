@@ -24,14 +24,14 @@
 </head>
 
 <body>
-    
+
 <!-- Navbar -->
 <?php
-    session_start();
-    $nav = "";
-    if (isset($_SESSION['current_user'])) {
-        
-        $nav = <<<EONAV
+session_start();
+$nav = "";
+if (isset($_SESSION['current_user'])) {
+
+    $nav = <<<EONAV
 <nav class="navbar navbar-dark navbar-expand-sm bg-dark">
     <small class="pr-2 text-white">Powered by</small>
     <img class="navbar-brand nav-height" src="img/umd-logo-trans.jpg"/>
@@ -46,8 +46,8 @@
     </ul>
 </nav>
 EONAV;
-    } else {
-        $nav = <<<EONAV
+} else {
+    $nav = <<<EONAV
 <nav class="navbar navbar-expand-sm bg-dark">
     <small class="pr-2 text-white">Powered by</small>
     <img class="navbar-brand nav-height" src="img/umd-logo-trans.jpg"/>
@@ -67,8 +67,8 @@ EONAV;
     </ul>
 </nav>
 EONAV;
-    }
-    echo $nav;
+}
+echo $nav;
 ?>
 
 <!-- Jumbotron with image and yellow text box -->
@@ -112,27 +112,30 @@ EONAV;
         <div class="col-4 text-center">
             <blockquote class="blockquote">
                 <p><em>
-                    I met not only my first wife, but my next ten wives all on TerpMatch!
-                    It's the best for UMD students.
-                </p></em>
+                        I met not only my first wife, but my next ten wives all on TerpMatch!
+                        It's the best for UMD students.
+                    </em>
+                </p>
             </blockquote>
             <em>- Finn Denhard</em>
         </div>
         <div class="col-4 text-center">
             <blockquote class="blockquote">
                 <p><em>
-                    I was looking for someone to study with, but instead I found the
-                    love of my life! Thanks TerpMatch!
-                </p></em>
+                        I was looking for someone to study with, but instead I found the
+                        love of my life! Thanks TerpMatch!
+                    </em>
+                </p>
             </blockquote>
             <em>- Fonn Donhord</em>
         </div>
         <div class="col-4 text-center">
             <blockquote class="blockquote">
-                <p></em>
+                <p><em>
                     I like turtles way more than the average person, so TerpMatch was
                     the perfect site for me.
-                </p></em>
+                    </em>
+                </p>
             </blockquote>
             <em>- Fann Dinhurd</em>
         </div>
