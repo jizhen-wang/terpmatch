@@ -67,17 +67,118 @@
 
         <hr />
 
-        <div class="ml-3">
-          <h2>About You</h2>
-          <p>
-            Below this is a list of your likes and interests as well as
-            settings from your registration, such as gender, major, etc.
-          </p>
+        <div class="mx-3">
+          <h1 class="pb-3">
+            <b>About You</b>
+            <small class="text-gray"><em>This information can be seen by your matches.</em></small>
+          </h1>
+          <div class="card-deck">
+            <div class="card shadow">
+              <div class="card-body">
+                <h3 class="pb-2">School & Personal Info</h3>
+                <table class="table table-bordered table-striped">
+                  <tr>
+                    <th>
+                      Gender
+                    </th>
+                    <td>
+                      M/F/Other
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      Year
+                    </th>
+                    <td>
+                      Senior
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      Major
+                    </th>
+                    <td>
+                      Your Major
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      Minor
+                    </th>
+                    <td>
+                      None
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="card shadow">
+              <div class="card-body">
+                <h3 class="pb-2">Match Info</h3>
+                <table class="table table-bordered table-striped">
+                  <tr>
+                    <th>
+                      Seeking
+                    </th>
+                    <td>
+                      M/F/Other
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      Relationship Type
+                    </th>
+                    <td>
+                      Study Buddy
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      Language
+                    </th>
+                    <td>
+                      English
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      ...
+                    </th>
+                    <td>
+                      ...
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
 
+        <!-- Hobbies and Interests -->
+        <div class="mx-3 mt-3">
+          <div class="card-deck">
+            <div class="card shadow">
+              <div class="card-body pb-3">
+                <p>
+                  <b>Hobbies:</b>
+                  Your, Hobbies, Go, Here
+                </p>
+                <p>
+                  <b>Interests:</b>
+                  Your, Interests, Go, Here
+                </p>
+                <p>
+                  <b>Goals:</b>
+                  Your, goals, should, be, here
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br />
       </div>
     </div>
-  </div>
-</body>
+  </body>
 
-</html>
+  </html>
