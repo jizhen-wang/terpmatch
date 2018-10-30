@@ -37,6 +37,9 @@
         <p class="text-center text-light">
           <em>username</em>
         </p>
+        <p class="text-light">
+          Your bio goes here. Short text describing you.
+        </p>
 
         <hr />
 
@@ -64,7 +67,13 @@
 
         <hr />
 
-        <h3>Your Profile</h3>
+        <div class="ml-3">
+          <h2>About You</h2>
+          <p>
+            Below this is a list of your likes and interests as well as
+            settings from your registration, such as gender, major, etc.
+          </p>
+        </div>
 
       </div>
     </div>
