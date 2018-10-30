@@ -28,7 +28,7 @@
     <div class="row h-100">
 
       <!-- Sidebar -->
-      <nav class="col-sm-3 col-md-2 bg-terps-red sidebar">
+      <nav class="col-sm-3 col-md-2 bg-dark sidebar p-3">
 
         <!-- Profile Picture -->
         <img src="img/default.jpg" alt="Profile Picture" class="rounded-circle sidebar-image mt-3" />
@@ -57,8 +57,15 @@
       </nav>
 
       <!-- Main Content -->
-      <div class="col-sm-9 col-md-10 pt-3">
-        <h2>Main content here</h2>
+      <div class="col-sm-9 col-md-10">
+        <div class="pt-2" id="header">
+          <h2 class="display-4 logo">TerpMatch&#x1F422;</h2>
+        </div>
+
+        <hr />
+
+        <h3>Your Profile</h3>
+
       </div>
     </div>
   </div>

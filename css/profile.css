@@ -29,3 +29,13 @@
 .active-sb {
   background-color: #ffd520;
 }
+
+.logo {
+  font-style: italic;
+  font-weight: bold;
+  color: #E03a3e;
+}
+
+.bg-gray {
+  background-color: gray;
+}
