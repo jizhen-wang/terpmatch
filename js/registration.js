@@ -5,24 +5,27 @@ function register() {
             message +
             '</div>');
     }
+
     //alert(validation());
     if (validation().length !== 0) {
         addAlert(validation());
         return false;
-    }else{
+    } else {
         let xmlHttp = new XMLHttpRequest();
         xmlHttp.open("POST", "registration.php", false);
-        let formData=new FormData(document.querySelector("#registration"));
+        let formData = new FormData(document.querySelector("#registration"));
         xmlHttp.send(formData);
         /* processing response */
         if (xmlHttp.readyState === 4) {
             if (xmlHttp.status === 200) {
                 let results = xmlHttp.responseText;
                 //alert(results);
-                if (results === "success"){
+                if (results === "success") {
                     location.reload();
-                }else {
-                    addAlert(results);
+                } else {
+                    if (results.includes("Duplicate")) {
+                        addAlert("Username is used, please try again");
+                    }
                     return false;
                 }
             }

@@ -12,6 +12,7 @@ function login() {
                 location.reload();
             } else {
                 addAlert();
+                document.querySelector("#login_form").reset();
                 return false;
             }
         }

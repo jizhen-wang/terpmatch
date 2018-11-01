@@ -10,7 +10,7 @@ if ($db_connection->connect_error) {
 }
 
 $username = trim($_POST['username']);
-$password = $_POST['password'];
+$password = $_POST['password_regist'];
 $first_name = trim($_POST['first_name']);
 $middle_name = trim($_POST['middle_name']);
 $last_name = trim($_POST['last_name']);
@@ -20,7 +20,7 @@ $year_in_school = $_POST['year_in_school'];
 $major = $_POST['major'];
 
 $sql = sprintf("INSERT INTO accounts VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", $username, $password, $first_name, $middle_name, $last_name, $gender, $bd, $year_in_school, $major); 
-echo $sql;
+//echo $sql;
 $result = mysqli_query($db_connection, $sql);
 
 if ($result) {
@@ -28,7 +28,7 @@ if ($result) {
     $_SESSION["current_user"] = $_POST["username"];
     echo "success";
 } else {
-    echo $result;
+    //echo $result;
     echo mysqli_error($db_connection);
 }
     
