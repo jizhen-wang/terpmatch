@@ -12,7 +12,7 @@ function register() {
         return false;
     } else {
         let xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("POST", "registration.php", false);
+        xmlHttp.open("POST", "services/registration.php", false);
         let formData = new FormData(document.querySelector("#registration"));
         xmlHttp.send(formData);
         /* processing response */

@@ -243,7 +243,7 @@ echo $nav;
             <!-- Modal body -->
             <div class="modal-body">
                 <form name="registration" id="registration" method="post" onsubmit="return register()"
-                      action="registration.php">
+                      action="services/registration.php">
                     <div id="alerts_2"></div>
                     <div class="form-row">
                         <div class="form-group col-sm-6">

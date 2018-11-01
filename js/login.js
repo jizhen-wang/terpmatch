@@ -1,6 +1,6 @@
 function login() {
     let xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("POST", "login.php", false);
+    xmlHttp.open("POST", "services/login.php", false);
     let formData = new FormData(document.querySelector("#login_form"));
     xmlHttp.send(formData);
     /* processing response */
@@ -12,7 +12,7 @@ function login() {
                 location.reload();
             } else {
                 addAlert();
-                document.querySelector("#login_form").reset();
+                //document.querySelector("#login_form").reset();
                 return false;
             }
         }

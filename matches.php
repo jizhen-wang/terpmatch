@@ -54,7 +54,7 @@
             <a class="nav-link text-light" href="messages.php">Messages</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="updateInfo.php">Update</a>
+            <a class="nav-link text-light" href="services/updateInfo.php">Update</a>
           </li>
         </ul>
       </nav>

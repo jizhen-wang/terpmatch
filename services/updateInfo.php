@@ -18,9 +18,9 @@
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-  <script src="js/update.js"></script>
+  <script src="../js/update.js"></script>
 
-  <link rel="stylesheet" href="css/profile.css"/>
+  <link rel="stylesheet" href="../css/profile.css"/>
 </head>
 
 </html>
