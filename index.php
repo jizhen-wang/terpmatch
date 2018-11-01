@@ -248,7 +248,7 @@ echo $nav;
                     <div class="form-row">
                         <div class="form-group col-sm-6">
                             <label>Username
-                                <input class="form-control" type="text" name="username" required>
+                                <input class="form-control" type="text" name="username_regist" required>
                             </label>
                         </div>
                     </div>

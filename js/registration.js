@@ -30,7 +30,7 @@ function register() {
                 }
             }
         }
-        return true;
+        return false;
     }
 }
 
