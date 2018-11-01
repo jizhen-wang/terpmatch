@@ -24,14 +24,10 @@ echo $sql;
 $result = mysqli_query($db_connection, $sql);
 
 if ($result) {
-    echo "hey it works";
     session_start();
     $_SESSION["current_user"] = $_POST["username"];
-    header("Location: index.php");
-    exit();
-}
-else {
-    echo "oh it fails";
+    echo "success";
+} else {
     echo $result;
     echo mysqli_error($db_connection);
 }

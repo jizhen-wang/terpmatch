@@ -20,6 +20,7 @@ if ($result) {
         session_start();
         $_SESSION["current_user"] = $_POST["username"];
         echo "success";
+        exit();
     }
 }
 ?>

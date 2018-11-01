@@ -18,7 +18,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-    <script src="js/validation.js"></script>
+    <script src="js/registration.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/login.js"></script>
     <link rel="stylesheet" href="css/styles.css"/>
@@ -39,10 +39,10 @@ if (isset($_SESSION['current_user'])) {
     <ul class="navbar-nav ml-auto">
         <span class="navbar-brand text-white">Welcome {$_SESSION["current_user"]}! </span>
         <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+            <a class="nav-link" href="profile.php">Profile</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Match</a>
+            <a class="nav-link" href="matches.php">Match</a>
         </li>
          <li class="nav-item">
             <a class="nav-link" href="#" onclick="kill_session()">Logout</a>
@@ -196,6 +196,40 @@ echo $nav;
     </div>
 </div>
 
+<!-- Login Modal -->
+<div class="modal fade" id="login_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <!-- <div class="modal-header">
+            <h4 class="modal-title">Login</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div> -->
+
+            <!-- Modal body -->
+            <form method="post" id= "login_form" onsubmit="return login()">
+                <div class="modal-body">
+                    <h3 class="modal-title py-3 text-center">Login to TerpMatch</h3>
+                    <div id="alerts"></div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="username" id="username" placeholder="Username"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" id="pwd" placeholder="Password"
+                               required>
+                    </div>
+                    <input type="submit" class="btn bg-terps-red btn-block" value="Login">
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- Registration Modal -->
 <div class="modal fade" id="register_modal">
     <div class="modal-dialog modal-md">
@@ -208,8 +242,9 @@ echo $nav;
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form name="registration" id="registration" method="post" onsubmit="return validation()"
+                <form name="registration" id="registration" method="post" onsubmit="return register()"
                       action="registration.php">
+                    <div id="alerts_2"></div>
                     <div class="form-row">
                         <div class="form-group col-sm-6">
                             <label>Username
@@ -220,7 +255,7 @@ echo $nav;
                     <div class="form-row">
                         <div class="form-group col-sm-6">
                             <label>Password
-                                <input class="form-control" type="password" name="password" required>
+                                <input class="form-control" type="password" name="password_regist" required>
                             </label>
                         </div>
                     </div>
@@ -304,39 +339,6 @@ echo $nav;
     </div>
 </div>
 
-<!-- Login Modal -->
-<div class="modal fade" id="login_modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <!-- <div class="modal-header">
-            <h4 class="modal-title">Login</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div> -->
-
-            <!-- Modal body -->
-            <form method="post" id= "login_form" onsubmit="return login()">
-                <div class="modal-body">
-                    <h3 class="modal-title py-3 text-center">Login to TerpMatch</h3>
-                    <div id="alerts"></div>
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="username" id="username" placeholder="Username"
-                               required>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" name="password" id="pwd" placeholder="Password"
-                               required>
-                    </div>
-                    <input type="submit" class="btn bg-terps-red btn-block" value="Login">
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 </body>
 
