@@ -20,6 +20,7 @@
 
     <script src="js/validation.js"></script>
     <script src="js/logout.js"></script>
+    <script src="js/login.js"></script>
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
 
@@ -36,7 +37,7 @@ if (isset($_SESSION['current_user'])) {
     <small class="pr-2 text-white">Powered by</small>
     <img class="navbar-brand nav-height" src="img/umd-logo-trans.jpg"/>
     <ul class="navbar-nav ml-auto">
-        <span class="navbar-brand text-white">Welcome back {$_SESSION["current_user"]}! </span>
+        <span class="navbar-brand text-white">Welcome {$_SESSION["current_user"]}! </span>
         <li class="nav-item">
             <a class="nav-link" href="#">Profile</a>
         </li>
@@ -314,9 +315,10 @@ echo $nav;
           </div> -->
 
             <!-- Modal body -->
-            <form method="post" action="login.php">
+            <form method="post" id= "login_form" onsubmit="return login()">
                 <div class="modal-body">
                     <h3 class="modal-title py-3 text-center">Login to TerpMatch</h3>
+                    <div id="alerts"></div>
                     <div class="form-group">
                         <input class="form-control" type="text" name="username" id="username" placeholder="Username"
                                required>
