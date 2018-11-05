@@ -58,11 +58,16 @@ if ($result) {
             echo '<p class="text-center text-light">
                 <em>' . $_SESSION["current_user"] . '</em></p>';
 
-            ?>
-            <p class="text-light">
-                Your bio goes here. Short text describing you.
-            </p>
 
+
+            if (!isset($_SESSION["bio"])) {
+                echo '<p class="text-center">';
+                echo '<a class="pt-2 text-white" href="services/updateInfo.php">Add My Bio</a>';
+            }else{
+                echo '<p class="text-light">';
+            }
+            echo '</p>'
+            ?>
             <hr/>
 
             <ul class="nav nav-pills flex-column">
@@ -123,9 +128,9 @@ if ($result) {
                                     </th>
                                     <td>';
                                         echo $_SESSION["major"];
-                                    echo '</td>
+                                        echo '</td>
                                 </tr>
-                                <tr>';?>
+                                <tr>'; ?>
                                     <th>
                                         Minor
                                     </th>
