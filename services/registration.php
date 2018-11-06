@@ -17,8 +17,12 @@ $gender = $_POST['gender'];
 $bd = $_POST['birthday'];
 $year_in_school = $_POST['year_in_school'];
 $major = $_POST['major'];
+$rs_type = $_POST['rs_type'];
+$rs_status = $_POST['rs_status'];
+$languages = implode(",", $_POST["languages"]);
 
-$sql = sprintf("INSERT INTO accounts VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", $username, $password, $first_name, $middle_name, $last_name, $gender, $bd, $year_in_school, $major); 
+$sql = sprintf("INSERT INTO accounts VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s','%s','%s')",
+    $username, $password, $first_name, $middle_name, $last_name, $gender, $bd, $year_in_school, $major, $rs_type, $rs_status, $languages);
 //echo $sql;
 $result = mysqli_query($db_connection, $sql);
 

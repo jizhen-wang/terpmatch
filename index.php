@@ -327,6 +327,40 @@ echo $nav;
                             </label>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-4">
+                            <label>Relationship Type
+                                <select class="form-control" name="rs_type">
+                                    <option value="Study Buddy">Study Buddy</option>
+                                    <option value="Friend">Friend</option>
+                                    <option value="Lover">Lover</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label>Relationship Status
+                                <select class="form-control" name="rs_status">
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Divorced">Divorced</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-4">
+                            <label>Language
+                                <select class="form-control" name="languages[]" required multiple>
+                                    <option value="English">English</option>
+                                    <option value="Mandarin">Mandarin</option>
+                                    <option value="Spanish">Spanish</option>
+                                    <option value="French">French</option>
+                                    <option value="Hindi">Hindi</option>
+                                    <option value="Arabic">Arabic</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
                     <input type="submit" class="btn bg-terps-red btn-block" value="Register">
                 </form>
             </div>

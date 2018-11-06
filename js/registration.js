@@ -19,7 +19,7 @@ function register() {
         if (xmlHttp.readyState === 4) {
             if (xmlHttp.status === 200) {
                 let results = xmlHttp.responseText;
-                //alert(results);
+                alert(results);
                 if (results === "success") {
                     location.reload();
                 } else {

@@ -150,7 +150,9 @@ if ($result) {
                                         Seeking
                                     </th>
                                     <td>
-                                        M/F/Other
+                                        <?php
+                                       echo ucfirst($_SESSION["gender"]);
+                                        ?>
                                     </td>
                                 </tr>
                                 <tr>
