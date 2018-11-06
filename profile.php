@@ -59,11 +59,10 @@ if ($result) {
                 <em>' . $_SESSION["current_user"] . '</em></p>';
 
 
-
             if (!isset($_SESSION["bio"])) {
                 echo '<p class="text-center">';
                 echo '<a class="pt-2 text-white" href="services/updateInfo.php">Add My Bio</a>';
-            }else{
+            } else {
                 echo '<p class="text-light">';
             }
             echo '</p>'
@@ -132,10 +131,12 @@ if ($result) {
                                 </tr>
                                 <tr>'; ?>
                                     <th>
-                                        Minor
+                                       Minor
                                     </th>
                                     <td>
-                                        None
+                                        <?php
+                                        echo $_SESSION['minor'];
+                                        ?>
                                     </td>
                                 </tr>
                             </table>
@@ -151,7 +152,7 @@ if ($result) {
                                     </th>
                                     <td>
                                         <?php
-                                       echo ucfirst($_SESSION["gender"]);
+                                        echo ucfirst($_SESSION["gender"]);
                                         ?>
                                     </td>
                                 </tr>
@@ -160,23 +161,29 @@ if ($result) {
                                         Relationship Type
                                     </th>
                                     <td>
-                                        Study Buddy
+                                        <?php
+                                        echo $_SESSION["rs_type"];
+                                        ?>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        Language
+                                        Languages
                                     </th>
                                     <td>
-                                        English
+                                        <?php
+                                        echo $_SESSION["languages"];
+                                        ?>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        Relationship Status
+                                       Relationship Status
                                     </th>
                                     <td>
-                                        Single
+                                        <?php
+                                        echo $_SESSION["rs_status"];
+                                        ?>
                                     </td>
                                 </tr>
                             </table>

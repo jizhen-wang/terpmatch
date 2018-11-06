@@ -326,6 +326,20 @@ echo $nav;
                                 </select>
                             </label>
                         </div>
+                        <div class="form-group col-sm-4">
+                            <label>Minor
+                                <select class="form-control" name="minor">
+                                    <?php
+                                    $fp = fopen("major.txt", "r");
+                                    echo "<option value=" . 'None' . ">" . 'None' . "</option>";
+                                    while (!feof($fp)) {
+                                        $line = fgets($fp);
+                                        echo "<option value=" . $line . ">" . $line . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </label>
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm-4">

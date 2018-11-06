@@ -13,6 +13,10 @@ Database schema:
                            birthdate date,
                            year_in_school enum('freshman', 'sophomore', 'junior', 'senior', 'master', 'doctor'),
                            major varchar(50),
+                           minor varchar(50),
+                           rs_type varchar(20),
+                           rs_status varchar(20),
+                           laguages varchar(50),
                            PRIMARY KEY (username));
                            
     

@@ -3,7 +3,7 @@
 
 require_once "dblogin.php";
 
-$db_connection=new mysqli($host, $user, $db_password, $database);
+$db_connection = new mysqli($host, $user, $db_password, $database);
 if ($db_connection->connect_error) {
     die($db_connection->connect_error);
 }
@@ -17,12 +17,13 @@ $gender = $_POST['gender'];
 $bd = $_POST['birthday'];
 $year_in_school = $_POST['year_in_school'];
 $major = $_POST['major'];
+$minor = $_POST['minor'];
 $rs_type = $_POST['rs_type'];
 $rs_status = $_POST['rs_status'];
 $languages = implode(",", $_POST["languages"]);
 
-$sql = sprintf("INSERT INTO accounts VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s','%s','%s')",
-    $username, $password, $first_name, $middle_name, $last_name, $gender, $bd, $year_in_school, $major, $rs_type, $rs_status, $languages);
+$sql = sprintf("INSERT INTO accounts VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s','%s', '%s', '%s','%s','%s','%s')",
+    $username, $password, $first_name, $middle_name, $last_name, $gender, $bd, $year_in_school, $major, $minor, $rs_type, $rs_status, $languages);
 //echo $sql;
 $result = mysqli_query($db_connection, $sql);
 
@@ -33,5 +34,5 @@ if ($result) {
 } else {
     echo mysqli_error($db_connection);
 }
-    
+
 ?>
