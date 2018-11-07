@@ -1,26 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>TerpMatch</title>
+<?php
+/* Yufei Huang 10/29/2018 */
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+require_once "dblogin.php";
 
-  <!-- Bootstrap stuff below -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+$db_connection = new mysqli($host, $user, $db_password, $database);
+if ($db_connection->connect_error) {
+    die($db_connection->connect_error);
+}
 
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+$username = trim($_POST['username_update']);
+$password = $_POST['password_update'];
+$first_name = trim($_POST['first_name']);
+$middle_name = trim($_POST['middle_name']);
+$last_name = trim($_POST['last_name']);
+$gender = $_POST['gender'];
+$bd = $_POST['birthday'];
+$year_in_school = $_POST['year_in_school'];
+$major = $_POST['major'];
+$minor = $_POST['minor'];
+$rs_type = $_POST['rs_type'];
+$rs_status = $_POST['rs_status'];
+$languages = implode(",", $_POST["languages"]);
 
-  <!-- Popper JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+$sql = sprintf("REPLACE INTO accounts VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s','%s', '%s', '%s','%s','%s','%s')",
+    $username, $password, $first_name, $middle_name, $last_name, $gender, $bd, $year_in_school, $major, $minor, $rs_type, $rs_status, $languages);
+//echo $sql;
+$result = mysqli_query($db_connection, $sql);
 
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+if ($result) {
+    session_start();
+    $_SESSION["current_user"] = $_POST["username_update"];
+    echo "success";
+} else {
+    echo mysqli_error($db_connection);
+}
 
-  <script src="../js/update.js"></script>
-
-  <link rel="stylesheet" href="../css/profile.css"/>
-</head>
-
-</html>
+?>

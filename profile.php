@@ -1,5 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<script>
+    function updateInfo() {
+        function addAlert(message) {
+            $('#alert').empty().append(
+                '<div class="alert alert-danger" role="alert">' +
+                message +
+                '</div>');
+        }
+
+        //alert(validation());
+        if (validation().length !== 0) {
+            addAlert(validation());
+            return false;
+        } else {
+            let xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("POST", "services/updateInfo.php", false);
+            let formData = new FormData(document.querySelector("#update"));
+            xmlHttp.send(formData);
+            /* processing response */
+            if (xmlHttp.readyState === 4) {
+                if (xmlHttp.status === 200) {
+                    let results = xmlHttp.responseText;
+                    //alert(results);
+                    if (results === "success") {
+                        location.reload();
+                    } else {
+                        if (results.includes("Duplicate")) {
+                            addAlert("Username is used, please try again");
+                        }
+                        return false;
+                    }
+                }
+            }
+            return false;
+        }
+
+        function validation() {
+            let password = document.getElementsByName("password_update")[0].value;
+            let confirm = document.getElementsByName("confirm")[0].value;
+            if (password !== confirm) {
+                return "Password does not match!";
+            }
+            return "";
+        }
+
+
+    }
+</script>
 
 <?php
 require_once "services/dblogin.php";
@@ -18,6 +64,8 @@ if ($result) {
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>TerpMatch</title>
 
@@ -36,9 +84,9 @@ if ($result) {
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-    <script src="js/profile.js"></script>
 
     <link rel="stylesheet" href="css/profile.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
 </head>
 
 <body>
@@ -61,7 +109,8 @@ if ($result) {
 
             if (!isset($_SESSION["bio"])) {
                 echo '<p class="text-center">';
-                echo '<a class="pt-2 text-white" href="services/updateInfo.php">Add My Bio</a>';
+                echo '<a class="pt-2 text-white" data-toggle="modal"
+                    data-target="#update_modal" href="#">Add My Bio</a>';
             } else {
                 echo '<p class="text-light">';
             }
@@ -80,7 +129,9 @@ if ($result) {
                     <a class="nav-link text-light" href="messages.php">Messages</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="services/updateInfo.php">Update</a>
+                    <a class="nav-link text-light" href="#" data-toggle="modal"
+                       data-target="#update_modal">Update
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -131,7 +182,7 @@ if ($result) {
                                 </tr>
                                 <tr>'; ?>
                                     <th>
-                                       Minor
+                                        Minor
                                     </th>
                                     <td>
                                         <?php
@@ -178,7 +229,7 @@ if ($result) {
                                 </tr>
                                 <tr>
                                     <th>
-                                       Relationship Status
+                                        Relationship Status
                                     </th>
                                     <td>
                                         <?php
@@ -217,6 +268,186 @@ if ($result) {
             <br/>
         </div>
     </div>
+    <div class="modal fade" id="update_modal">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Update</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div id="#alert"></div>
+                    <form name="update" id="update" method="post" onsubmit="return updateInfo()"
+                          action="services/updateInfo.php">
+                        <div id="alert"></div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-6">
+                                <label>Username
+                                    <?php
+                                    echo '<input class="form-control" type="text" name="username_update" value="' .
+                                        $_SESSION['current_user'] . '" required readonly>';
+                                    ?>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-6">
+                                <label>Password
+                                    <input class="form-control" type="password" name="password_update" required>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-6">
+                                <label>Confirm Password
+                                    <input class="form-control" type="password" name="confirm" required>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <label>First name
+                                    <?php
+                                    echo '<input class="form-control" type="text" name="first_name" required value=' .
+                                        $_SESSION["first_name"] . ">";
+                                    ?>
+                                </label>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Middle name
+                                    <?php
+                                    echo '<input class="form-control" type="text" name="middle_name"';
+                                    if (isset($_SESSION["middle_name"])) {
+                                        echo 'value=' . $_SESSION["middle_name"];
+                                    }
+                                    echo ">";
+                                    ?>
+                                </label>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Last name
+                                    <?php
+                                    echo '<input class="form-control" type="text" name="last_name" required value=' .
+                                        $_SESSION["last_name"] . ">";
+                                    ?>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <label>Gender
+                                    <?php
+                                    $select = <<<EO
+<select class="form-control" name="gender" required>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+EO;
+                                    $select = str_replace('value="' . $_SESSION["gender"] . '"',
+                                        'selected="selected" value="' . $_SESSION["gender"] . '"', $select);
+                                    echo $select;
+                                    ?>
+                                </label>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Birthday
+                                    <input class="form-control" type="date" name="birthday" min="1950-1-1"
+                                           max="2005-12-13"
+                                           required>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <label>Year in School
+                                    <select class="form-control" name="year_in_school" required>
+                                        <option value="freshman">Freshman</option>
+                                        <option value="sophomore">Sophomore</option>
+                                        <option value="junior">Junior</option>
+                                        <option value="senior">Senior</option>
+                                        <option value="master">Masters Candidate</option>
+                                        <option value="phd">Doctoral Candidate</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Major
+                                    <select class="form-control" name="major" required>
+                                        <?php
+                                        $fp = fopen("major.txt", "r");
+                                        while (!feof($fp)) {
+                                            $line = fgets($fp);
+                                            echo "<option value=" . $line . ">" . $line . "</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Minor
+                                    <select class="form-control" name="minor">
+                                        <?php
+                                        $fp = fopen("major.txt", "r");
+                                        echo "<option value=" . 'None' . ">" . 'None' . "</option>";
+                                        while (!feof($fp)) {
+                                            $line = fgets($fp);
+                                            echo "<option value=" . $line . ">" . $line . "</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <label>Relationship Type
+                                    <select class="form-control" name="rs_type">
+                                        <option value="Study Buddy">Study Buddy</option>
+                                        <option value="Friend">Friend</option>
+                                        <option value="Lover">Lover</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Relationship Status
+                                    <select class="form-control" name="rs_status">
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="Divorced">Divorced</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <label>Language
+                                    <select class="form-control" name="languages[]" required multiple>
+                                        <option value="English">English</option>
+                                        <option value="Mandarin">Mandarin</option>
+                                        <option value="Spanish">Spanish</option>
+                                        <option value="French">French</option>
+                                        <option value="Hindi">Hindi</option>
+                                        <option value="Arabic">Arabic</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                        <input type=submit class="btn bg-terps-red btn-block" value="update">
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
