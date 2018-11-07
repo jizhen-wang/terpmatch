@@ -436,7 +436,7 @@ EO;
                                 </label>
                             </div>
                         </div>
-                        <input type=submit class="btn bg-terps-red btn-block" value="update">
+                        <input type=submit class="btn bg-terps-red btn-block" value="Update">
                     </form>
                 </div>
 
