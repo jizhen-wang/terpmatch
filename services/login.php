@@ -10,13 +10,13 @@ $db_connection = new mysqli($host, $user, $db_password, $database);
 if ($db_connection->connect_error) {
     die($db_connection->connect_error);
 }
-$sqlQuery = sprintf("select * from accounts where username='%s' and password='%s'",
-    $_POST["username"], $_POST["password"]);
+$sqlQuery = sprintf("select * from accounts where username='%s'",
+    $_POST["username"]);
 $result = mysqli_query($db_connection, $sqlQuery);
 if ($result) {
     $recordArray = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $numberOfRows = mysqli_num_rows($result);
-    if ($numberOfRows == 1) {
+    if ($numberOfRows == 1 && password_verify($_POST["password"], $recordArray["password"])) {
         session_start();
         $_SESSION["current_user"] = $_POST["username"];
         echo "success";

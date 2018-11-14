@@ -5,7 +5,7 @@
 
 Database schema:
     create table accounts (username varchar(20) NOT NULL,
-                           password varchar(50) NOT NULL,
+                           password varchar(100) NOT NULL,
                            first_name varchar(20),
                            middle_name varchar(20),
                            last_name varchar(20),

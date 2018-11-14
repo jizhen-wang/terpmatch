@@ -23,7 +23,7 @@ $rs_status = $_POST['rs_status'];
 $languages = implode(",", $_POST["languages"]);
 
 $sql = sprintf("INSERT INTO accounts VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s','%s', '%s', '%s','%s','%s','%s')",
-    $username, $password, $first_name, $middle_name, $last_name, $gender, $bd, $year_in_school, $major, $minor, $rs_type, $rs_status, $languages);
+    $username, password_hash($password, PASSWORD_DEFAULT), $first_name, $middle_name, $last_name, $gender, $bd, $year_in_school, $major, $minor, $rs_type, $rs_status, $languages);
 //echo $sql;
 $result = mysqli_query($db_connection, $sql);
 
