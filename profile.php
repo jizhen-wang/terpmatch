@@ -105,7 +105,7 @@ if ($result) {
                 <em>' . $_SESSION["current_user"] . '</em></p>';
 
 
-            if (!isset($_SESSION["bio"])) {
+            if (!strlen($_SESSION["bio"]) > 0) {
                 echo '<p class="text-center">';
                 echo '<a class="pt-2 text-white" data-toggle="modal"
                     data-target="#extra_modal" href="#">Add My Bio</a>';
@@ -248,7 +248,7 @@ if ($result) {
                         <div class="card-body pb-3">
                             <p><b>Hobbies:</b>
                                 <?php
-                                if (isset($_SESSION["hobbies"])) {
+                                if (strlen($_SESSION["hobbies"]) > 0) {
                                     echo $_SESSION["hobbies"];
                                 } else {
                                     echo "<a  data-toggle=\"modal\"
@@ -259,7 +259,7 @@ if ($result) {
                             <p>
                                 <b>Interests:</b>
                                 <?php
-                                if (isset($_SESSION["interests"])) {
+                                if (strlen($_SESSION["interests"]) > 0) {
                                     echo $_SESSION["interests"];
                                 } else {
                                     echo "<a  data-toggle=\"modal\"
@@ -270,7 +270,7 @@ if ($result) {
                             <p>
                                 <b>Goals:</b>
                                 <?php
-                                if (isset($_SESSION["goals"])) {
+                                if (strlen($_SESSION["goals"]) > 0) {
                                     echo $_SESSION["goals"];
                                 } else {
                                     echo "<a  data-toggle=\"modal\"
@@ -476,20 +476,77 @@ EO;
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <form autocomplete="off" action="#">
+                    <form autocomplete="off" action="#" id="more_info" method="post" onsubmit="addInfo()">
+                        <div class="row">
+                            <div class="col-4"><strong>Hobbies</strong></div>
+                        </div>
                         <div class="row">
                             <div class="autocomplete form-group col-6" style="width:300px;">
-                                <input class="form-control" id="myInput" type="text" name="myHobby"
-                                       placeholder="Hobby">
+                                <strong></strong>
+                                <input style="text-transform: capitalize" class="form-control" id="myInput" type="text"
+                                       name="myHobby"
+                                       placeholder="Enter Your Hobbies Here">
                             </div>
-                            <button class="form-control col-2" type="button" onclick="show()">Add</button>
+                            <button class="form-control col-2" type="button" onclick="show()">
+                                Add
+                            </button>
                         </div>
+                        <input type="hidden" name="hidden">
                         <div class="row">
                             <div class="col-12">
                                 <div id="allHobbies">
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-4"><strong>Interests</strong></div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-8" style="width:300px;">
+                                <strong></strong>
+                                <label>
+                                    <select class="form-control" name="interests[]" required multiple>
+                                        <option value="Arts & Entertainment">Arts & Entertainment</option>
+                                        <option value="Automotive & Vehicle ">Automotive & Vehicle</option>
+                                        <option value="Beauty & Fitness ">Beauty & Fitness</option>
+                                        <option value="Business & Industrial">Business & Industrial</option>
+                                        <option value="Computers & Technology">Computers & Technology</option>
+                                        <option value="Education and Employment">Education and Employment</option>
+                                        <option value="Food & Drink">Food & Drink</option>
+                                        <option value="Home & Garden">Home & Garden</option>
+                                        <option value="Law & Government">Law & Government</option>
+                                        <option value="Leisure & Hobbies"> Leisure & Hobbies</option>
+                                        <option value="News">News</option>
+                                        <option value="Science">Science</option>
+                                        <option value="Shopping">Shopping</option>
+                                        <option value="Sports">Sports</option>
+                                        <option value="Travel">Travel</option>
+                                        <option value="Video Games">Video Games</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4"><strong>Goals</strong></div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-8" style="width:300px;">
+                                <label>
+                                    <textarea class="form-control" name="goals"></textarea>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4"><strong>Bio</strong></div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-8" style="width:300px;">
+                                <label>
+                                    <textarea class="form-control" name="bio"></textarea>
+                                </label>
+                            </div>
+                        </div>
+                        <input type=submit class="btn bg-terps-red btn-block" value="Update">
                     </form>
                 </div>
 
