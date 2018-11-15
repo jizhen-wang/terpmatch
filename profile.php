@@ -83,8 +83,6 @@ if ($result) {
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-
     <link rel="stylesheet" href="css/profile.css"/>
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
@@ -110,7 +108,7 @@ if ($result) {
             if (!isset($_SESSION["bio"])) {
                 echo '<p class="text-center">';
                 echo '<a class="pt-2 text-white" data-toggle="modal"
-                    data-target="#update_modal" href="#">Add My Bio</a>';
+                    data-target="#extra_modal" href="#">Add My Bio</a>';
             } else {
                 echo '<p class="text-light">';
             }
@@ -248,17 +246,37 @@ if ($result) {
                 <div class="card-deck">
                     <div class="card shadow">
                         <div class="card-body pb-3">
-                            <p>
-                                <b>Hobbies:</b>
-                                Your, Hobbies, Go, Here
+                            <p><b>Hobbies:</b>
+                                <?php
+                                if (isset($_SESSION["hobbies"])) {
+                                    echo $_SESSION["hobbies"];
+                                } else {
+                                    echo "<a  data-toggle=\"modal\"
+                    data-target=\"#extra_modal\" href=\"#\">Add Your Hobbies</a>";
+                                }
+                                ?>
                             </p>
                             <p>
                                 <b>Interests:</b>
-                                Your, Interests, Go, Here
+                                <?php
+                                if (isset($_SESSION["interests"])) {
+                                    echo $_SESSION["interests"];
+                                } else {
+                                    echo "<a  data-toggle=\"modal\"
+                    data-target=\"#extra_modal\" href=\"#\">Add Your interests</a>";
+                                }
+                                ?>
                             </p>
                             <p>
                                 <b>Goals:</b>
-                                Your, goals, should, be, here
+                                <?php
+                                if (isset($_SESSION["goals"])) {
+                                    echo $_SESSION["goals"];
+                                } else {
+                                    echo "<a  data-toggle=\"modal\"
+                    data-target=\"#extra_modal\" href=\"#\">Add Your goals</a>";
+                                }
+                                ?>
                             </p>
                         </div>
                     </div>
@@ -447,7 +465,43 @@ EO;
             </div>
         </div>
     </div>
+    <div class="modal fade" id="extra_modal">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">More About You</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form autocomplete="off" action="#">
+                        <div class="row">
+                            <div class="autocomplete form-group col-6" style="width:300px;">
+                                <input class="form-control" id="myInput" type="text" name="myHobby"
+                                       placeholder="Hobby">
+                            </div>
+                            <button class="form-control col-2" type="button" onclick="show()">Add</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div id="allHobbies">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
+<script src="js/profile.js"></script>
 </body>
 
 </html>
