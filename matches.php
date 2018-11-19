@@ -47,20 +47,21 @@ if ($result) {
         <nav class="col-sm-3 col-md-2 bg-dark sidebar p-3">
 
             <!-- Profile Picture -->
-            <img src="img/default.jpg" alt="Profile Picture" class="rounded-circle sidebar-image mt-3"/>
-
+            <img src="img/default.jpg" alt="Profile Picture" class="rounded-circle sidebar-image mt-3"
+                 onclick="$('#extra_modal').modal('show');"/>
             <?php
             //session_start();
             echo '<h4 class="text-center pt-2 text-white">' . $_SESSION["first_name"] .
                 " " . $_SESSION["last_name"] . "</h4>";
             echo '<p class="text-center text-light">
                 <em>' . $_SESSION["current_user"] . '</em></p>';
-            if (!isset($_SESSION["bio"])) {
+            if (!strlen($_SESSION["bio"]) > 0) {
                 echo '<p class="text-center">';
                 echo '<a class="pt-2 text-white" data-toggle="modal"
-                    data-target="#update_modal" href="#">Add My Bio</a>';
+                    data-target="#extra_modal" href="#">Add My Bio</a>';
             } else {
-                echo '<p class="text-light">';
+                echo '<p class="text-light text-center">';
+                echo $_SESSION["bio"];
             }
             echo '</p>'
             ?>

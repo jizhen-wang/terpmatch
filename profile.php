@@ -95,7 +95,7 @@ if ($result) {
         <nav class="col-sm-3 col-md-2 bg-dark sidebar p-3">
 
             <!-- Profile Picture -->
-            <img onclick="show_profile()" src="img/default.jpg" alt="Profile Picture"
+            <img onclick="$('#extra_modal').modal('show');" src="img/default.jpg" alt="Profile Picture"
                  class="rounded-circle sidebar-image mt-3"
             >
             <?php
@@ -110,7 +110,8 @@ if ($result) {
                 echo '<a class="pt-2 text-white" data-toggle="modal"
                     data-target="#extra_modal" href="#">Add My Bio</a>';
             } else {
-                echo '<p class="text-light">';
+                echo '<p class="text-light text-center">';
+                 echo $_SESSION["bio"];
             }
             echo '</p>'
             ?>
@@ -477,6 +478,15 @@ EO;
                 <!-- Modal body -->
                 <div class="modal-body">
                     <form autocomplete="off" action="#" id="more_info" method="post" onsubmit="addInfo()">
+                        <div class="row">
+                            <div class="col-4"><strong>Profile Photo</strong></div>
+                        </div>
+                        <!--
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+                        </div> -->
                         <div class="row">
                             <div class="col-4"><strong>Hobbies</strong></div>
                         </div>
