@@ -2,6 +2,11 @@
 require_once "services/dblogin.php";
 require_once "services/photodb.php";
 session_start();
+if (!isset($_SESSION['current_user'])) {
+    // not logged in
+    header('Location: index.php');
+    exit();
+}
 $db_connection = new mysqli($host, $user, $db_password, $database);
 if ($db_connection->connect_error) {
     die($db_connection->connect_error);
