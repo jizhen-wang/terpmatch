@@ -22,5 +22,9 @@ Database schema:
                            goals varchar(200),
                            bio varchar(200),
                            PRIMARY KEY (username));
-                           
+Profile photo schema:                         
+    create table photos (username varchar(20) NOT NULL,
+                         docData longblob,
+                         docMimeType varchar(512));
+                                           
     

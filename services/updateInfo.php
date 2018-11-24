@@ -9,7 +9,7 @@ if ($db_connection->connect_error) {
 }
 
 $username = trim($_POST['username_update']);
-$password = $_POST['password_update'];
+$password = password_hash($_POST["password_update"], PASSWORD_DEFAULT);
 $first_name = trim($_POST['first_name']);
 $middle_name = trim($_POST['middle_name']);
 $last_name = trim($_POST['last_name']);
@@ -22,9 +22,11 @@ $rs_type = $_POST['rs_type'];
 $rs_status = $_POST['rs_status'];
 $languages = implode(",", $_POST["languages"]);
 
-$sql = sprintf("REPLACE INTO accounts VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s','%s', '%s', '%s','%s','%s','%s')",
-    $username, password_hash($password, PASSWORD_DEFAULT), $first_name, $middle_name, $last_name, $gender, $bd, $year_in_school, $major, $minor, $rs_type, $rs_status, $languages);
-//echo $sql;
+$sql = "UPDATE accounts 
+    SET password='{$password}', first_name='{$first_name}', middle_name='{$middle_name}', last_name='{$last_name}', gender='{$gender}', birthdate='{$bd}', 
+    year_in_school='{$year_in_school}', major='{$major}', minor='{$minor}', rs_type='{$rs_type}', rs_status='{$rs_status}', languages ='{$languages}'
+    WHERE username='{$username}'";
+
 $result = mysqli_query($db_connection, $sql);
 
 if ($result) {

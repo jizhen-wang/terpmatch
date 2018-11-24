@@ -1,54 +1,6 @@
-<script>
-    function updateInfo() {
-        function addAlert(message) {
-            $('#alert').empty().append(
-                '<div class="alert alert-danger" role="alert">' +
-                message +
-                '</div>');
-        }
-
-        //alert(validation());
-        if (validation().length !== 0) {
-            addAlert(validation());
-            return false;
-        } else {
-            let xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("POST", "services/updateInfo.php", false);
-            let formData = new FormData(document.querySelector("#update"));
-            xmlHttp.send(formData);
-            /* processing response */
-            if (xmlHttp.readyState === 4) {
-                if (xmlHttp.status === 200) {
-                    let results = xmlHttp.responseText;
-                    //alert(results);
-                    if (results === "success") {
-                        location.reload();
-                    } else {
-                        if (results.includes("Duplicate")) {
-                            addAlert("Username is used, please try again");
-                        }
-                        return false;
-                    }
-                }
-            }
-            return false;
-        }
-
-        function validation() {
-            let password = document.getElementsByName("password_update")[0].value;
-            let confirm = document.getElementsByName("confirm")[0].value;
-            if (password !== confirm) {
-                return "Password does not match!";
-            }
-            return "";
-        }
-
-
-    }
-</script>
-
 <?php
 require_once "services/dblogin.php";
+require_once "services/photodb.php";
 session_start();
 $db_connection = new mysqli($host, $user, $db_password, $database);
 if ($db_connection->connect_error) {
@@ -61,6 +13,17 @@ if ($result) {
     $recordArray = mysqli_fetch_array($result, MYSQLI_ASSOC);
     foreach (array_keys($recordArray) as $key) {
         $_SESSION[$key] = $recordArray[$key];
+    }
+}
+$sqlQuery = sprintf("select * from photos where username='%s'",
+    $_SESSION["current_user"]);
+$result = mysqli_query($db_connection, $sqlQuery);
+if ($result) {
+    $recordArray = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    if (isset($recordArray)) {
+        foreach (array_keys($recordArray) as $key) {
+            $_SESSION[$key] = $recordArray[$key];
+        }
     }
 }
 ?>
@@ -86,7 +49,7 @@ if ($result) {
     <link rel="stylesheet" href="css/profile.css"/>
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
-
+<script src="js/update.js"></script>
 <body>
 <div class="container-fluid">
     <div class="row h-100">
@@ -95,10 +58,12 @@ if ($result) {
         <nav class="col-sm-3 col-md-2 bg-dark sidebar p-3">
 
             <!-- Profile Picture -->
-            <img onclick="$('#extra_modal').modal('show');" src="img/default.jpg" alt="Profile Picture"
-                 class="rounded-circle sidebar-image mt-3"
-            >
             <?php
+            $src = "img/default.jpg";
+            echo <<<EOT
+<img onclick="$('#extra_modal').modal('show');" src="services/retrievePhoto.php" alt="Profile Picture"
+                 class="rounded-circle sidebar-image mt-3">
+EOT;
             echo '<h4 class="text-center pt-2 text-white">' . $_SESSION["first_name"] .
                 " " . $_SESSION["last_name"] . "</h4>";
             echo '<p class="text-center text-light">
@@ -111,7 +76,7 @@ if ($result) {
                     data-target="#extra_modal" href="#">Add My Bio</a>';
             } else {
                 echo '<p class="text-light text-center">';
-                 echo $_SESSION["bio"];
+                echo $_SESSION["bio"];
             }
             echo '</p>'
             ?>
@@ -299,6 +264,7 @@ if ($result) {
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div id="#alert"></div>
+                    <script src="js/update.js"></script>
                     <form name="update" id="update" method="post" onsubmit="return updateInfo()"
                           action="services/updateInfo.php">
                         <div id="alert"></div>

@@ -19,7 +19,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
     <script src="js/matches.js"></script>
-
+    <script src="js/photo.js"></script>
     <link rel="stylesheet" href="css/profile.css"/>
 </head>
 <?php
@@ -48,7 +48,7 @@ if ($result) {
 
             <!-- Profile Picture -->
             <img src="img/default.jpg" alt="Profile Picture" class="rounded-circle sidebar-image mt-3"
-                 onclick="$('#extra_modal').modal('show');"/>
+                 onclick="$('#photoModal').modal('show');"/>
             <?php
             //session_start();
             echo '<h4 class="text-center pt-2 text-white">' . $_SESSION["first_name"] .
@@ -340,7 +340,7 @@ EO;
                                 </label>
                             </div>
                         </div>
-                        <input type=submit class="btn bg-terps-red btn-block" value="Update">
+                        <input type=submit class="btn bg-terps-red btn-block text-white" value="Update">
                     </form>
                 </div>
 
@@ -348,6 +348,32 @@ EO;
                 <div class="modal-footer">
                 </div>
 
+            </div>
+        </div>
+    </div>
+    <script src="js/photo.js"></script>
+    <div class="modal fade" id="photoModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Upload Profile Photo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="photoForm">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Choose Photo:</label>
+                            <input type="file" class="form-control-file" id="photo" name="photo">
+                        </div>
+                        <button type="button" class="btn bg-terps-red btn-block text-white" onclick="upload()">Upload
+                            Profile Photo
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
             </div>
         </div>
     </div>
