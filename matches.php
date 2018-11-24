@@ -52,9 +52,12 @@ if ($result) {
         <nav class="col-sm-3 col-md-2 bg-dark sidebar p-3">
 
             <!-- Profile Picture -->
-            <img src="img/default.jpg" alt="Profile Picture" class="rounded-circle sidebar-image mt-3"
-                 onclick="$('#photoModal').modal('show');"/>
             <?php
+            $src = "img/default.jpg";
+            echo <<<EOT
+<img onclick="$('#extra_modal').modal('show');" src="services/retrievePhoto.php" alt="Profile Picture"
+                 class="rounded-circle sidebar-image mt-3">
+EOT;
             //session_start();
             echo '<h4 class="text-center pt-2 text-white">' . $_SESSION["first_name"] .
                 " " . $_SESSION["last_name"] . "</h4>";
