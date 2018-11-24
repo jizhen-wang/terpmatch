@@ -55,6 +55,7 @@ if ($result) {
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <script src="js/update.js"></script>
+<script src="js/photo.js"></script>
 <body>
 <div class="container-fluid">
     <div class="row h-100">
@@ -65,8 +66,11 @@ if ($result) {
             <!-- Profile Picture -->
             <?php
             $src = "img/default.jpg";
+            if (isset($_SESSION["docData"])) {
+                $src = "services/retrievePhoto.php";
+            }
             echo <<<EOT
-<img onclick="$('#extra_modal').modal('show');" src="services/retrievePhoto.php" alt="Profile Picture"
+<img onclick="$('#photoModal').modal('show');" src={$src} alt="Profile Picture"
                  class="rounded-circle sidebar-image mt-3">
 EOT;
             echo '<h4 class="text-center pt-2 text-white">' . $_SESSION["first_name"] .
@@ -452,12 +456,11 @@ EO;
                         <div class="row">
                             <div class="col-4"><strong>Profile Photo</strong></div>
                         </div>
-                        <!--
                         <div class="row">
                             <div class="form-group col-6">
                                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
                             </div>
-                        </div> -->
+                        </div>
                         <div class="row">
                             <div class="col-4"><strong>Hobbies</strong></div>
                         </div>
@@ -535,6 +538,31 @@ EO;
                 <div class="modal-footer">
                 </div>
 
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="photoModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Upload Profile Photo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="photoForm">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Choose Photo:</label>
+                            <input type="file" class="form-control-file" id="photo" name="photo">
+                        </div>
+                        <button type="button" class="btn bg-terps-red btn-block text-white" onclick="upload()">Upload
+                            Profile Photo
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
             </div>
         </div>
     </div>

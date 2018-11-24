@@ -17,8 +17,5 @@ if ($result) {
     header("Content-type: " . "{$recordArray['docMimeType']}");
     echo $recordArray['docData'];
     mysqli_free_result($result);
-} else {
-    echo "img/default.jpg";
 }
-
 ?>

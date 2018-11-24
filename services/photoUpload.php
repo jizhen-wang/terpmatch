@@ -17,7 +17,13 @@ $result = mysqli_query($db_connection, $sql);
 if ($result) {
     echo "success";
 } else {
-    echo mysqli_error($db_connection);
+    $sql = sprintf("REPLACE INTO photos VALUES('%s', '%s', '%s')", $username, $photo, mime_content_type($_FILES['photo']['tmp_name']));
+    $result = mysqli_query($db_connection, $sql);
+    if ($result){
+        echo "success";
+    }else{
+        echo $result;
+    }
 }
 
 ?>

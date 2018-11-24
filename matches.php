@@ -54,8 +54,11 @@ if ($result) {
             <!-- Profile Picture -->
             <?php
             $src = "img/default.jpg";
+            if (isset($_SESSION["docData"])) {
+                $src = "services/retrievePhoto.php";
+            }
             echo <<<EOT
-<img onclick="$('#extra_modal').modal('show');" src="services/retrievePhoto.php" alt="Profile Picture"
+<img onclick="$('#photoModal').modal('show');" src={$src} alt="Profile Picture"
                  class="rounded-circle sidebar-image mt-3">
 EOT;
             //session_start();

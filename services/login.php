@@ -19,6 +19,7 @@ if ($result) {
     if ($numberOfRows == 1 && password_verify($_POST["password"], $recordArray["password"])) {
         session_start();
         $_SESSION["current_user"] = $_POST["username"];
+        $_SESSION["curr_name"] = $recordArray["first_name"];
         echo "success";
         exit();
     }
