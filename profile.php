@@ -71,7 +71,7 @@ if ($result) {
             }
             echo <<<EOT
 <img onclick="$('#photoModal').modal('show');" src={$src} alt="Profile Picture"
-                 class="rounded-circle sidebar-image mt-3">
+                 class="rounded-circle sidebar-image mt-3 img-fluid">
 EOT;
             echo '<h4 class="text-center pt-2 text-white">' . $_SESSION["first_name"] .
                 " " . $_SESSION["last_name"] . "</h4>";
@@ -87,7 +87,7 @@ EOT;
                 echo '<p class="text-light text-center">';
                 echo $_SESSION["bio"];
             }
-            echo '</p>'
+            echo '</p>';
             ?>
             <hr/>
 
@@ -454,14 +454,6 @@ EO;
                 <div class="modal-body">
                     <form autocomplete="off" action="#" id="more_info" method="post" onsubmit="addInfo()">
                         <div class="row">
-                            <div class="col-4"><strong>Profile Photo</strong></div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-6">
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-4"><strong>Hobbies</strong></div>
                         </div>
                         <div class="row">
@@ -541,6 +533,7 @@ EO;
             </div>
         </div>
     </div>
+    <script src="js/profile.js"></script>
     <div class="modal fade" id="photoModal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -567,7 +560,11 @@ EO;
         </div>
     </div>
 </div>
-<script src="js/profile.js"></script>
+<?php
+if (isset($_GET["moreInfo"])){
+    echo "<script>$('#extra_modal').modal('show')</script>";
+}
+?>
 </body>
 
 </html>

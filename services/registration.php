@@ -31,6 +31,7 @@ $result = mysqli_query($db_connection, $sql);
 if ($result) {
     session_start();
     $_SESSION["current_user"] = $_POST["username_regist"];
+    $_SESSION["current_name"] = $_POST["first_name"];
     echo "success";
 } else {
     echo mysqli_error($db_connection);

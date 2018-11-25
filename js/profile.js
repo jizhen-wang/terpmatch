@@ -117,10 +117,12 @@ let myValue = "";
 function show() {
     let input = document.getElementById("myInput");
     let div = document.getElementById("allHobbies");
-    div.innerHTML += (input.value + "<br>");
-    myValue += input.value + ",";
-    document.getElementsByName("hidden")[0].value = myValue;
-    input.value = "";
+    if (input.value.length > 0) {
+        div.innerHTML += (input.value + "<br>");
+        myValue += input.value + ",";
+        document.getElementsByName("hidden")[0].value = myValue;
+        input.value = "";
+    }
 }
 
 function toTitleCase(str) {

@@ -59,7 +59,7 @@ if ($result) {
             }
             echo <<<EOT
 <img onclick="$('#photoModal').modal('show');" src={$src} alt="Profile Picture"
-                 class="rounded-circle sidebar-image mt-3">
+                 class="rounded-circle sidebar-image mt-3 img-fluid">
 EOT;
             //session_start();
             echo '<h4 class="text-center pt-2 text-white">' . $_SESSION["first_name"] .
@@ -68,8 +68,7 @@ EOT;
                 <em>' . $_SESSION["current_user"] . '</em></p>';
             if (!strlen($_SESSION["bio"]) > 0) {
                 echo '<p class="text-center">';
-                echo '<a class="pt-2 text-white" data-toggle="modal"
-                    data-target="#extra_modal" href="#">Add My Bio</a>';
+                echo '<a class="pt-2 text-white" href="profile.php?moreInfo=1">Add My Bio</a>';
             } else {
                 echo '<p class="text-light text-center">';
                 echo $_SESSION["bio"];

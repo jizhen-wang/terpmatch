@@ -37,7 +37,7 @@ if (isset($_SESSION['current_user'])) {
     <small class="pr-2 text-white">Powered by</small>
     <img class="navbar-brand nav-height" src="img/umd-logo-trans.jpg"/>
     <ul class="navbar-nav ml-auto">
-        <span class="navbar-brand text-white">Welcome {$_SESSION["curr_name"]}! </span>
+        <span class="navbar-brand text-white">Welcome {$_SESSION["current_name"]}! </span>
         <li class="nav-item">
             <a class="nav-link" href="profile.php">Profile</a>
         </li>
