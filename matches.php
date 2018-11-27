@@ -50,7 +50,6 @@ if ($result) {
 
         <!-- Sidebar -->
         <nav class="col-sm-3 col-md-2 bg-dark sidebar p-3">
-
             <!-- Profile Picture -->
             <?php
             $src = "img/default.jpg";
