@@ -54,6 +54,11 @@ if ($mResult) {
   $_SESSION['matches'] = $mArray;
 }
 
+$sendTo = "";
+
+if (isset($_GET['receiver'])) {
+  $sendTo = $_GET['receiver'];
+}
 
 ?>
 <body>
@@ -133,7 +138,11 @@ EOT;
                     <select class="form-control" id="receiver" name="receiver" required>
                       <?php
                       foreach ($mArray as $match) {
-                        echo '<option value="'.$match.'">'.$match.'</option>';
+                        if ($match == $sendTo) {
+                          echo '<option value="'.$match.'" selected>'.$match.'</option>';
+                        } else {
+                          echo '<option value="'.$match.'">'.$match.'</option>';
+                        }
                       }
                       ?>
                     </select>
