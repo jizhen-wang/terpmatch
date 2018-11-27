@@ -2,6 +2,8 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+let firstMatch = true;
+
 function displayCard(inData) {
     $('#no-matches-text').hide();
 
@@ -11,7 +13,11 @@ function displayCard(inData) {
     let first = inData["name"].split("_")[0];
     let last = inData["name"].split("_")[1];
     let name = capitalizeFirstLetter(first + " " + last);
-    str += `<h3 class='p-2' onclick="document.location='messages.php?receiver=${inData["username"]}';return false;">${name}</h3>`;
+    if (firstMatch) {
+      str += `<h3 class='p-2' onclick="document.location='messages.php?receiver=${inData["username"]}';return false;">${name} <span class='text-warning'>&#9733</span></h3>`;
+    } else {
+      str += `<h3 class='p-2' onclick="document.location='messages.php?receiver=${inData["username"]}';return false;">${name}</h3>`;
+    }
     str += "<div class='container-fluid'><div class='row'>";
     str += "<div class='col-4'>"
     str += `<p><strong>Gender: </strong>${capitalizeFirstLetter(inData['gender'])}</p>`;
@@ -25,6 +31,8 @@ function displayCard(inData) {
     str += `<p><strong>Goals: </strong>${capitalizeFirstLetter(inData['goals'])}</p>`;
     str += '</div>';
     str += "</div></div></div></div></div>";
+
+    firstMatch = false;
 
     $('#matches-deck').append(str);
 }
