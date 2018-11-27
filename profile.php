@@ -103,7 +103,7 @@ EOT;
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="#" data-toggle="modal"
-                       data-target="#update_modal">Update
+                       data-target="#pickModal">Update
                     </a>
                 </li>
             </ul>
@@ -561,10 +561,34 @@ EO;
             </div>
         </div>
     </div>
+    <div class="modal fade" id="pickModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Choose Which to Update:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn bg-terps-red btn-block text-white"  data-dismiss="modal" data-toggle="modal"
+                            data-target="#update_modal">Upload
+                        Basic Info
+                    </button>
+                    <button type="button" class="btn bg-terps-red btn-block text-white"  data-dismiss="modal" data-toggle="modal"
+                            data-target="#extra_modal">Upload
+                        Extra Info
+                    </button>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <?php
-if (isset($_GET["moreInfo"])){
-    echo "<script>$('#extra_modal').modal('show')</script>";
+if (isset($_GET["moreInfo"])) {
+    echo "<script>$('#pickModal').modal('show')</script>";
 }
 ?>
 </body>
