@@ -44,6 +44,16 @@ if ($result) {
     }
 }
 
+$matchesQuery = sprintf("select match_username from matches where username='%s'", $_SESSION['current_user']);
+$mResult = mysqli_query($db_connection, $matchesQuery);
+if ($mResult) {
+  $mArray = [];
+  while ($mRow = mysqli_fetch_array($mResult, MYSQLI_ASSOC)) {
+    array_push($mArray, $mRow['match_username']);
+  }
+  $_SESSION['matches'] = $mArray;
+}
+
 
 ?>
 <body>
@@ -119,7 +129,15 @@ EOT;
                 <!-- After generate matches is pressed, append new deck to this div -->
                 <div id="messaging div">
                   <form action="services/sendMessage.php" method="post" onsubmit="return validateMessage()">
-                    To: <input type="text" class="form-control" id="receiver" name="receiver"/><br />
+                    To:
+                    <select class="form-control" id="receiver" name="receiver" required>
+                      <?php
+                      foreach ($mArray as $match) {
+                        echo '<option value="'.$match.'">'.$match.'</option>';
+                      }
+                       ?>
+                    </select>
+                      <br />
                       <?php
                         if (isset($_GET["receiver"])){
                             echo '<script>document.getElementById("receiver").setAttribute("value","' . $_GET["receiver"] .'")</script>';
