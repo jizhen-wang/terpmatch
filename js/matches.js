@@ -26,6 +26,7 @@ function displayCard(inData) {
     str += `<p><strong>Minor: </strong>${capitalizeFirstLetter(inData['minor'])}</p>`;
     str += '</div>';
     str += "<div class='col-8'>"
+    str += `<p><strong>Bio: </strong>${capitalizeFirstLetter(inData['bio'])}</p>`;
     str += `<p><strong>Hobbies: </strong>${capitalizeFirstLetter(inData['hobbies'])}</p>`;
     str += `<p><strong>Interests: </strong>${capitalizeFirstLetter(inData['interests'])}</p>`;
     str += `<p><strong>Goals: </strong>${capitalizeFirstLetter(inData['goals'])}</p>`;

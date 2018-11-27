@@ -20,10 +20,11 @@ $major = $_POST['major'];
 $minor = $_POST['minor'];
 $rs_type = $_POST['rs_type'];
 $rs_status = $_POST['rs_status'];
+$rs_seeking = $_POST['rs_seeking'];
 
 $sql = "UPDATE accounts
     SET password='{$password}', first_name='{$first_name}', middle_name='{$middle_name}', last_name='{$last_name}', gender='{$gender}', birthdate='{$bd}',
-    year_in_school='{$year_in_school}', major='{$major}', minor='{$minor}', rs_type='{$rs_type}', rs_status='{$rs_status}'
+    year_in_school='{$year_in_school}', major='{$major}', minor='{$minor}', rs_type='{$rs_type}', rs_status='{$rs_status}', rs_seeking='{$rs_seeking}'
     WHERE username='{$username}'";
 
 $result = mysqli_query($db_connection, $sql);
