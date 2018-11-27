@@ -360,6 +360,15 @@ echo $nav;
                                 </select>
                             </label>
                         </div>
+                        <div class="form-group col-sm-4">
+                            <label>Seeking Gender
+                                <select class="form-control" name="rs_seeking">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </label>
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm-4">
@@ -391,4 +400,3 @@ echo $nav;
 </body>
 
 </html>
-

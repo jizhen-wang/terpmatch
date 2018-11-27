@@ -176,7 +176,7 @@ EOT;
                                     </th>
                                     <td>
                                         <?php
-                                        echo ucfirst($_SESSION["gender"]);
+                                        echo ucfirst($_SESSION["rs_seeking"]);
                                         ?>
                                     </td>
                                 </tr>
