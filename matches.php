@@ -91,6 +91,9 @@ EOT;
                     <a class="nav-link text-light" href="profile.php?moreInfo=1">Update
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="index.php">Main Screen</a>
+                </li>
             </ul>
         </nav>
 
@@ -113,67 +116,6 @@ EOT;
                     <div id="no-matches-text">
                         <h6>No matches yet! Click "Generate Match" to get started.</h6>
                     </div>
-                    <!-- <div class="card-deck">
-                        Match One
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <img src="img/default.jpg" alt="profile picture" class="card-img-top rounded-circle"/>
-                                <h4 class="pt-3">Match One</h4>
-                                <p>
-                                    Bio text goes here. This is the same as the bio text that the
-                                    match sets.
-                                </p>
-                                <p class="text-center">
-                                    <b>Score:</b> XX
-                                </p>
-                            </div>
-                        </div>
-
-                        Match Two
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <img src="img/default.jpg" alt="profile picture" class="card-img-top rounded-circle"/>
-                                <h4 class="pt-3">Match Two</h4>
-                                <p>
-                                    Bio text goes here. This is the same as the bio text that the
-                                    match sets.
-                                </p>
-                                <p class="text-center">
-                                    <b>Score:</b> XX
-                                </p>
-                            </div>
-                        </div>
-
-                        Match Three
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <img src="img/default.jpg" alt="profile picture" class="card-img-top rounded-circle"/>
-                                <h4 class="pt-3">Match Three</h4>
-                                <p>
-                                    Bio text goes here. This is the same as the bio text that the
-                                    match sets.
-                                </p>
-                                <p class="text-center">
-                                    <b>Score:</b> XX
-                                </p>
-                            </div>
-                        </div>
-
-                        Match Four
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <img src="img/default.jpg" alt="profile picture" class="card-img-top rounded-circle"/>
-                                <h4 class="pt-3">Match Four</h4>
-                                <p>
-                                    Bio text goes here. This is the same as the bio text that the
-                                    match sets.
-                                </p>
-                                <p class="text-center">
-                                    <b>Score:</b> XX
-                                </p>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
 
                 <!-- Generate More Matches -->

@@ -106,6 +106,9 @@ EOT;
                        data-target="#pickModal">Update
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="index.php">Main Screen</a>
+                </li>
             </ul>
         </nav>
 

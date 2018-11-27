@@ -309,7 +309,7 @@ echo $nav;
                                     <option value="junior">Junior</option>
                                     <option value="senior">Senior</option>
                                     <option value="master">Masters Candidate</option>
-                                    <option value="phd">Doctoral Candidate</option>
+                                    <option value="doctor">Doctoral Candidate</option>
                                 </select>
                             </label>
                         </div>
