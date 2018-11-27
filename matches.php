@@ -113,7 +113,7 @@ EOT;
                 <!-- After generate matches is pressed, append new deck to this div -->
                 <div id="matches-deck">
                     <div id="no-matches-text">
-                        <h6>No matches yet! Click "Generate Matches" to get started.</h6>
+                        <h6>No matches yet! Click "Generate Match" to get started.</h6>
                     </div>
                     <!-- <div class="card-deck">
                         Match One
@@ -180,7 +180,7 @@ EOT;
 
                 <!-- Generate More Matches -->
                 <div class="my-5 text-center">
-                    <button class="btn btn-xl bg-terps-red text-white py-4">Generate Matches</button>
+                    <button class="btn btn-xl bg-terps-red text-white py-4" id="gen-match">Generate Match</button>
                 </div>
             </div>
         </div>

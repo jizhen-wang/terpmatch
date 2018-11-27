@@ -16,6 +16,7 @@ Database schema:
                            minor varchar(50),
                            rs_type varchar(20),
                            rs_status varchar(20),
+                           rs_seeking enum('male', 'female', 'other'),
                            languages varchar(50),
                            hobbies varchar(100),
                            interests varchar(100),
