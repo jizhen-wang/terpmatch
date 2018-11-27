@@ -59,9 +59,23 @@ function generateMatch() {
   });
 }
 
+function getInfo(username) {
+  $.get("services/getInfoFor.php", {name:`${username}`}).done(function (data) {
+    if (data != "") {
+      let matchResult = JSON.parse(data)[0];
+      displayCard(matchResult);
+    }
+  });
+}
+
 function getPreviousMatches() {
   $.get( "services/pastMatches.php").done(function( data ) {
-    alert( "Data Loaded: " + data );
+    if (data != "") {
+      let pastMatchesNames = JSON.parse(data);
+      for (let i = 0; i < pastMatchesNames.length; i++) {
+        getInfo(pastMatchesNames[i]);
+      }
+    }
   });
 }
 
