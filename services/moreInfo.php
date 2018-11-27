@@ -7,7 +7,10 @@ if ($db_connection->connect_error) {
     die($db_connection->connect_error);
 }
 $hobbies = trim(substr($_POST['hidden'],0,strlen($_POST['hidden']) - 1));
-$interests = implode(",", $_POST['interests']);
+$interests = "";
+if (isset($_POST['interests'])) {
+  $interests = implode(",", $_POST['interests']);
+}
 $goals = trim($_POST['goals']);
 $bio = trim($_POST['bio']);
 

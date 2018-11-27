@@ -81,8 +81,7 @@ EOT;
 
             if (!strlen($_SESSION["bio"]) > 0) {
                 echo '<p class="text-center">';
-                echo '<a class="pt-2 text-white" data-toggle="modal"
-                    data-target="#extra_modal" href="#">Add My Bio</a>';
+                echo '<a class="pt-2 text-white" href="update.php">Add My Bio</a>';
             } else {
                 echo '<p class="text-light text-center">';
                 echo $_SESSION["bio"];
@@ -102,9 +101,7 @@ EOT;
                     <a class="nav-link text-light" href="messages.php">Messages</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#" data-toggle="modal"
-                       data-target="#pickModal">Update
-                    </a>
+                    <a class="nav-link text-light" href="update.php">Update</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="index.php">Main Screen</a>
@@ -231,8 +228,7 @@ EOT;
                                 if (strlen($_SESSION["hobbies"]) > 0) {
                                     echo $_SESSION["hobbies"];
                                 } else {
-                                    echo "<a  data-toggle=\"modal\"
-                    data-target=\"#extra_modal\" href=\"#\">Add Your Hobbies</a>";
+                                    echo "<a href='update.php'>Add Your Hobbies</a>";
                                 }
                                 ?>
                             </p>
@@ -242,8 +238,7 @@ EOT;
                                 if (strlen($_SESSION["interests"]) > 0) {
                                     echo $_SESSION["interests"];
                                 } else {
-                                    echo "<a  data-toggle=\"modal\"
-                    data-target=\"#extra_modal\" href=\"#\">Add Your interests</a>";
+                                    echo "<a href='update.php'>Add Your interests</a>";
                                 }
                                 ?>
                             </p>
@@ -253,8 +248,7 @@ EOT;
                                 if (strlen($_SESSION["goals"]) > 0) {
                                     echo $_SESSION["goals"];
                                 } else {
-                                    echo "<a  data-toggle=\"modal\"
-                    data-target=\"#extra_modal\" href=\"#\">Add Your goals</a>";
+                                    echo "<a href='update.php'>Add Your goals</a>";
                                 }
                                 ?>
                             </p>

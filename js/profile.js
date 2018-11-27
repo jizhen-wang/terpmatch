@@ -153,4 +153,3 @@ function addInfo() {
     }
     return false;
 }
-
