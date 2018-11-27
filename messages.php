@@ -11,18 +11,16 @@
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet"
+
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-    <script src="js/matches.js"></script>
+    <script src="js/messages.js"></script>
     <script src="js/photo.js"></script>
-    <link rel="stylesheet" href="css/message.css"/>
     <link rel="stylesheet" href="css/profile.css"/>
-
 </head>
 <?php
 require_once "services/dblogin.php";
@@ -45,6 +43,8 @@ if ($result) {
         $_SESSION[$key] = $recordArray[$key];
     }
 }
+
+
 ?>
 <body>
 <div class="container-fluid">
@@ -85,10 +85,10 @@ EOT;
                     <a class="nav-link text-light" href="profile.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="matches.php">Matches</a>
+                    <a class="nav-link active-sb disabled text-dark" href="#">Matches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active-sb disabled text-dark">Messages</a>
+                    <a class="nav-link text-light" href="messages.php">Messages</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="#" data-toggle="modal"
@@ -110,148 +110,51 @@ EOT;
                 <h1 class="pb-3">
                     <b>Messaging</b>
                 </h1>
-                <div class="container">
-                    <div class="messaging">
-                        <div class="inbox_msg">
-                            <div class="inbox_people">
-                                <div class="headind_srch">
-                                    <div class="recent_heading">
-                                        <h4>Recent</h4>
-                                    </div>
-                                    <div class="srch_bar">
-                                        <div class="stylish-input-group">
-                                            <input type="text" class="search-bar"  placeholder="Search" >
-                                            <span class="input-group-addon">
-                <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-                </span> </div>
-                                    </div>
-                                </div>
-                                <div class="inbox_chat">
-                                    <div class="chat_list active_chat">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat_list">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat_list">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat_list">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat_list">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat_list">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat_list">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mesgs">
-                                <div class="msg_history">
-                                    <div class="incoming_msg">
-                                        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                                        <div class="received_msg">
-                                            <div class="received_withd_msg">
-                                                <p>Test which is a new approach to have all
-                                                    solutions</p>
-                                                <span class="time_date"> 11:01 AM    |    June 9</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="outgoing_msg">
-                                        <div class="sent_msg">
-                                            <p>Test which is a new approach to have all
-                                                solutions</p>
-                                            <span class="time_date"> 11:01 AM    |    June 9</span> </div>
-                                    </div>
-                                    <div class="incoming_msg">
-                                        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                                        <div class="received_msg">
-                                            <div class="received_withd_msg">
-                                                <p>Test, which is a new approach to have</p>
-                                                <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="outgoing_msg">
-                                        <div class="sent_msg">
-                                            <p>Apollo University, Delhi, India Test</p>
-                                            <span class="time_date"> 11:01 AM    |    Today</span> </div>
-                                    </div>
-                                    <div class="incoming_msg">
-                                        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                                        <div class="received_msg">
-                                            <div class="received_withd_msg">
-                                                <p>We work directly with our designers and suppliers,
-                                                    and sell direct to you, which means quality, exclusive
-                                                    products, at a price anyone can afford.</p>
-                                                <span class="time_date"> 11:01 AM    |    Today</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="type_msg">
-                                    <div class="input_msg_write">
-                                        <input type="text" class="write_msg" placeholder="Type a message" />
-                                        <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                
+                <h3>Send a Message</h3>
 
-
-
-                    </div></div>
+                <!-- Matches card decks -->
+                <!-- After generate matches is pressed, append new deck to this div -->
+                <div id="messaging div">
+                  <form action="services/sendMessage.php" method="post" onsubmit="return validateMessage()">
+                    To: <input type="text" class="form-control" id="receiver" name="receiver"/><br />
+                    Message Text: <br /><textarea name="body" id="body" class="form-control"></textarea><br />
+                    <button type="submit" id="send" class="btn bg-terps-red btn-block text-white">Send</button>
+                    <br />
+                  </form>  
+                </div>
+                
+                <div id="messages">
+                  <h3>Sent Messages</h3>
+                  <?php
+                  $sqlQuery = sprintf("select * from messages where sender='%s'",
+                      $_SESSION["current_user"]);
+                  $result = mysqli_query($db_connection, $sqlQuery);
+                  if ($result) {
+                    echo "<table class='table table-bordered'><tr><th>Timestamp</th><th>Recipient</th><th>Message</th></tr>";
+                    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                      echo "<tr><td>{$row['timestamp']}</td><td>{$row['receiver']}</td><td>{$row['message_body']}</td></tr>";
+                    }
+                    echo "</table>";
+                      
+                  }
+                  ?>
+                  
+                  <h3>Recieved Messages</h3>
+                  <?php
+                  $sqlQuery = sprintf("select * from messages where receiver='%s'",
+                      $_SESSION["current_user"]);
+                  $result = mysqli_query($db_connection, $sqlQuery);
+                  if ($result) {
+                    echo "<table class='table table-bordered'><tr><th>Timestamp</th><th>Sender</th><th>Message</th></tr>";
+                    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                      echo "<tr><td>{$row['timestamp']}</td><td>{$row['sender']}</td><td>{$row['message_body']}</td></tr>";
+                    }
+                    echo "</table>";
+                      
+                  }
+                  ?>
+                </div>
             </div>
         </div>
     </div>
