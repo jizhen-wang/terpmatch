@@ -91,7 +91,7 @@ EOT;
                     <a class="nav-link active-sb disabled text-dark" href="#">Messages</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="profile.php?moreInfo=1">Update
+                    <a class="nav-link text-light" href="update.php">Update
                     </a>
                 </li>
                 <li class="nav-item">
@@ -120,6 +120,11 @@ EOT;
                 <div id="messaging div">
                   <form action="services/sendMessage.php" method="post" onsubmit="return validateMessage()">
                     To: <input type="text" class="form-control" id="receiver" name="receiver"/><br />
+                      <?php
+                        if (isset($_GET["receiver"])){
+                            echo '<script>document.getElementById("receiver").setAttribute("value","' . $_GET["receiver"] .'")</script>';
+                        }
+                      ?>
                     Message Text: <br /><textarea name="body" id="body" class="form-control"></textarea><br />
                     <button type="submit" id="send" class="btn bg-terps-red btn-block text-white">Send</button>
                     <br />

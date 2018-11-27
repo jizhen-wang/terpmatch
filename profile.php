@@ -583,11 +583,6 @@ EO;
         </div>
     </div>
 </div>
-<?php
-if (isset($_GET["moreInfo"])) {
-    echo "<script>$('#pickModal').modal('show')</script>";
-}
-?>
 </body>
 
 </html>

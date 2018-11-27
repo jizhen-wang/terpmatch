@@ -320,7 +320,7 @@ echo $nav;
                                     $fp = fopen("major.txt", "r");
                                     while (!feof($fp)) {
                                         $line = fgets($fp);
-                                        echo "<option value=" . $line . ">" . $line . "</option>";
+                                        echo "<option value=\"" . $line . "\">" . $line . "</option>";
                                     }
                                     ?>
                                 </select>

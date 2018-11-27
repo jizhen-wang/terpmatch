@@ -88,7 +88,7 @@ EOT;
                     <a class="nav-link text-light" href="messages.php">Messages</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="profile.php?moreInfo=1">Update
+                    <a class="nav-link text-light" href="update.php">Update
                     </a>
                 </li>
                 <li class="nav-item">
@@ -152,5 +152,4 @@ EOT;
         </div>
     </div>
 </body>
-
 </html>

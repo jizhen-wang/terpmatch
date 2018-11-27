@@ -256,9 +256,9 @@ EO;
                                       while (!feof($fp)) {
                                           $line = fgets($fp);
                                           if (trim($line) == trim($_SESSION['major'])) {
-                                            echo "<option selected value=" . $line . ">" . $line . "</option>";
+                                            echo "<option selected value=\"" . $line . "\">" . $line . "</option>";
                                           } else {
-                                            echo "<option value=" . $line . ">" . $line . "</option>";
+                                            echo "<option value=\"" . $line . "\">" . $line . "</option>";
                                           }
                                       }
                                       ?>
@@ -391,7 +391,7 @@ EO;
                           <div class="form-group col-8" style="width:300px;">
                               <strong></strong>
                               <label>
-                                  <select class="form-control" name="interests[]" multiple>
+                                  <select class="form-control" name="interests[]" multiple required>
                                       <option value="Arts & Entertainment">Arts & Entertainment</option>
                                       <option value="Automotive & Vehicle ">Automotive & Vehicle</option>
                                       <option value="Beauty & Fitness ">Beauty & Fitness</option>
@@ -418,7 +418,7 @@ EO;
                       <div class="row">
                           <div class="form-group col-8" style="width:300px;">
                               <label>
-                                  <textarea class="form-control" name="goals"></textarea>
+                                  <textarea class="form-control" name="goals" required></textarea>
                               </label>
                           </div>
                       </div>
