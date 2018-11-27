@@ -49,3 +49,11 @@
   height: 20%;
   font-size: 25px;
 }
+
+.link-red {
+  color: #E03a3e;
+}
+
+.link-red:hover {
+  color: #E03a3e;
+}

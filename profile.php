@@ -112,7 +112,7 @@ EOT;
         <!-- Main Content -->
         <div class="col-sm-9 col-md-10">
             <div class="pt-2" id="header">
-                <h2 class="display-4 logo">TerpMatch&#x1F422;</h2>
+                <h2 class="display-4 logo"><a href="index.php" class="link-red">TerpMatch&#x1F422;</a></h2>
             </div>
 
             <hr/>
