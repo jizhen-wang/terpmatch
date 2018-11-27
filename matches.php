@@ -110,9 +110,12 @@ EOT;
 
                 <!-- Matches card decks -->
                 <!-- After generate matches is pressed, append new deck to this div -->
-                <div id="matches-decks">
-                    <div class="card-deck">
-                        <!-- Match One -->
+                <div id="matches-deck">
+                    <div id="no-matches-text">
+                        <h6>No matches yet! Click "Generate Matches" to get started.</h6>
+                    </div>
+                    <!-- <div class="card-deck">
+                        Match One
                         <div class="card shadow">
                             <div class="card-body">
                                 <img src="img/default.jpg" alt="profile picture" class="card-img-top rounded-circle"/>
@@ -127,7 +130,7 @@ EOT;
                             </div>
                         </div>
 
-                        <!-- Match Two -->
+                        Match Two
                         <div class="card shadow">
                             <div class="card-body">
                                 <img src="img/default.jpg" alt="profile picture" class="card-img-top rounded-circle"/>
@@ -142,7 +145,7 @@ EOT;
                             </div>
                         </div>
 
-                        <!-- Match Three -->
+                        Match Three
                         <div class="card shadow">
                             <div class="card-body">
                                 <img src="img/default.jpg" alt="profile picture" class="card-img-top rounded-circle"/>
@@ -157,7 +160,7 @@ EOT;
                             </div>
                         </div>
 
-                        <!-- Match Four -->
+                        Match Four
                         <div class="card shadow">
                             <div class="card-body">
                                 <img src="img/default.jpg" alt="profile picture" class="card-img-top rounded-circle"/>
@@ -171,7 +174,7 @@ EOT;
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Generate More Matches -->
