@@ -196,9 +196,9 @@ EOT;
                                     </th>
                                     <td>
                                         <?php
-                                        $langs = $_SESSION["languages"];
-                                        echo var_dump($langs);
-                                        // echo $_SESSION["languages"];
+                                        // $langs = $_SESSION["languages"];
+                                        // echo var_dump($langs);
+                                        echo $_SESSION["languages"];
                                         ?>
                                     </td>
                                 </tr>
