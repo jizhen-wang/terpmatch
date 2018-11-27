@@ -135,7 +135,7 @@ EOT;
                       foreach ($mArray as $match) {
                         echo '<option value="'.$match.'">'.$match.'</option>';
                       }
-                       ?>
+                      ?>
                     </select>
                       <br />
                       <?php

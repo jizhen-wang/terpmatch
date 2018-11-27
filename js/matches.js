@@ -14,9 +14,9 @@ function displayCard(inData) {
     let last = inData["name"].split("_")[1];
     let name = capitalizeFirstLetter(first + " " + last);
     if (firstMatch) {
-      str += `<h3 class='p-2' onclick="document.location='messages.php?receiver=${inData["username"]}';return false;">${name} <span class='text-warning'>&#9733</span></h3>`;
+      str += `<h3 class='p-2' onclick="document.location='messages.php?receiver=${inData["username"]}';return false;">${name} - <small><em>${inData["username"]}</em></small> <span class='text-warning'>&#9733</span></h3>`;
     } else {
-      str += `<h3 class='p-2' onclick="document.location='messages.php?receiver=${inData["username"]}';return false;">${name}</h3>`;
+      str += `<h3 class='p-2' onclick="document.location='messages.php?receiver=${inData["username"]}';return false;">${name} - <small><em>${inData["username"]}</em></small></h3>`;
     }
     str += "<div class='container-fluid'><div class='row'>";
     str += "<div class='col-4'>"

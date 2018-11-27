@@ -32,7 +32,7 @@ if ($numberOfPotentialMatches != 0) {
 
     while ($other_info = mysqli_fetch_array($others_result, MYSQLI_ASSOC)) {
         //check if already matched here
-        $sql = sprintf("SELECT * FROM matches WHERE match_username='%s'", $other_info["username"]);
+        $sql = sprintf("SELECT * FROM matches WHERE username='%s' AND match_username='%s'", $current_user, $other_info["username"]);
         $res = mysqli_query($db_connection, $sql);
         if (mysqli_num_rows($res) == 0) {
 
