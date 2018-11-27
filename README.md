@@ -16,7 +16,7 @@ Database schema:
                            minor varchar(50),
                            rs_type varchar(20),
                            rs_status varchar(20),
-                           laguages varchar(50),
+                           languages varchar(50),
                            hobbies varchar(100),
                            interests varchar(100),
                            goals varchar(200),

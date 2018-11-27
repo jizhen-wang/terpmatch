@@ -196,7 +196,9 @@ EOT;
                                     </th>
                                     <td>
                                         <?php
-                                        echo $_SESSION["languages"];
+                                        $langs = $_SESSION["languages"];
+                                        echo var_dump($langs);
+                                        // echo $_SESSION["languages"];
                                         ?>
                                     </td>
                                 </tr>
@@ -481,7 +483,7 @@ EO;
                             <div class="form-group col-8" style="width:300px;">
                                 <strong></strong>
                                 <label>
-                                    <select class="form-control" name="interests[]" required multiple>
+                                    <select class="form-control" name="interests[]" multiple>
                                         <option value="Arts & Entertainment">Arts & Entertainment</option>
                                         <option value="Automotive & Vehicle ">Automotive & Vehicle</option>
                                         <option value="Beauty & Fitness ">Beauty & Fitness</option>
