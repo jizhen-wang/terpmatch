@@ -85,15 +85,18 @@ EOT;
                     <a class="nav-link text-light" href="profile.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active-sb disabled text-dark" href="#">Matches</a>
+                    <a class="nav-link text-light" href="matches.php">Matches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="messages.php">Messages</a>
+                    <a class="nav-link active-sb disabled text-dark" href="#">Messages</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="#" data-toggle="modal"
                        data-target="#update_modal">Update
                     </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="index.php">Main Screen</a>
                 </li>
             </ul>
         </nav>
@@ -110,7 +113,7 @@ EOT;
                 <h1 class="pb-3">
                     <b>Messaging</b>
                 </h1>
-                
+
                 <h3>Send a Message</h3>
 
                 <!-- Matches card decks -->
@@ -121,9 +124,9 @@ EOT;
                     Message Text: <br /><textarea name="body" id="body" class="form-control"></textarea><br />
                     <button type="submit" id="send" class="btn bg-terps-red btn-block text-white">Send</button>
                     <br />
-                  </form>  
+                  </form>
                 </div>
-                
+
                 <div id="messages">
                   <h3>Sent Messages</h3>
                   <?php
@@ -136,10 +139,10 @@ EOT;
                       echo "<tr><td>{$row['timestamp']}</td><td>{$row['receiver']}</td><td>{$row['message_body']}</td></tr>";
                     }
                     echo "</table>";
-                      
+
                   }
                   ?>
-                  
+
                   <h3>Recieved Messages</h3>
                   <?php
                   $sqlQuery = sprintf("select * from messages where receiver='%s'",
@@ -151,7 +154,7 @@ EOT;
                       echo "<tr><td>{$row['timestamp']}</td><td>{$row['sender']}</td><td>{$row['message_body']}</td></tr>";
                     }
                     echo "</table>";
-                      
+
                   }
                   ?>
                 </div>

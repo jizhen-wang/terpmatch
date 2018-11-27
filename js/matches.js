@@ -13,7 +13,7 @@
 // </div>
 
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function displayCard(inData) {
@@ -33,15 +33,11 @@ function displayCard(inData) {
   str += `<p><strong>Major: </strong>${capitalizeFirstLetter(inData['major'])}</p>`;
   str += `<p><strong>Minor: </strong>${capitalizeFirstLetter(inData['minor'])}</p>`;
   str += '</div>';
-  str += "<div class='col-4'>"
+  str += "<div class='col-8'>"
   str += `<p><strong>Hobbies: </strong>${capitalizeFirstLetter(inData['hobbies'])}</p>`;
   str += `<p><strong>Interests: </strong>${capitalizeFirstLetter(inData['interests'])}</p>`;
   str += `<p><strong>Goals: </strong>${capitalizeFirstLetter(inData['goals'])}</p>`;
   str += '</div>';
-  str += "<div class='col-4'>"
-  //image goes here
-  str += '</div>';
-
   str += "</div></div></div></div></div>";
 
   $('#matches-deck').append(str);
