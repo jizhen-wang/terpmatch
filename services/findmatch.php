@@ -120,7 +120,7 @@ if ($maxScoreUser != "") {
 
   $info[] = array('username'=> $username,'name'=> $name, 'gender'=> $gender,
     'year'=>$year, 'major'=>$major, 'minor'=>$minor, 'hobbies'=>$hobbies,
-    'interests'=>$interests, '$goals'=>$goals, 'bio'=>$bio);
+    'interests'=>$interests, 'goals'=>$goals, 'bio'=>$bio);
 
   $res_json = json_encode($info);
 
